@@ -5,6 +5,7 @@ UItips = class(ViewBase)
 local this = {}
 
 local SpeakMessage= ""
+this.WritingCoroutine = nil
 function UItips:ctor()
 end
 
@@ -45,10 +46,14 @@ function UItips:show(NpcName,NpcSpeak)
 	this.lb_NpcMessage.text = NpcSpeak
 end
 
+
+
 function UItips:SelfWritingText(NpcName,NpcSpeak)
-	this.lb_NpcName.text = NpcName
-	coroutine.start(self.Writing,NpcSpeak)
+    this.lb_NpcName.text = NpcName
+    this.SpeakMessage = NpcSpeak
+	this.WritingCoroutine = coroutine.start(self.Writing,NpcSpeak)
 end
+
 
 function UItips.Writing(NpcSpeak)
 	k=string.len(NpcSpeak)
@@ -63,8 +68,10 @@ function UItips.Writing(NpcSpeak)
 	end
 end
 
-function OnNextClick()
-	print("next")
+function UItips.OnNextClick()
+    print("next")
+    coroutine.stop(this.WritingCoroutine)
+    this.lb_NpcMessage.text = this.SpeakMessage
 end
 
 function UItips:AddCollider()
