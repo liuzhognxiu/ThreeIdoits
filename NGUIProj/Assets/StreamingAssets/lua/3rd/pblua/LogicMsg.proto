@@ -1,0 +1,106 @@
+syntax = "proto3";
+package logic_msg;
+
+
+enum LoginState
+{
+	Login_Success           = 0;    // 登录成功
+	Login_CreateRole        = 1;    // 创建角色
+}
+
+// 登录消息
+message Login
+{
+	 string account 		= 1;	// 玩家帐号
+	 string pwd 		    = 2;	// 密码
+}
+
+message LoginResp
+{
+	 int32 result            = 1;	// 登录结果，0是成功并有角色，1是登录成功，但没有角色，需要创建角色,2，3是验证失败 4是被封号 5 账号不存在
+	 int64 account_id        = 2;   // 账号ID
+}
+
+// 注册后直接返回登录成功信息
+message Register
+{
+	string account           = 1;   // 账号
+	string pwd               = 2;   // 密码
+}
+
+// 创建玩家 暂时不考虑
+message CreatePlayer
+{
+	string user_name         = 1;   //名字
+	int32  sex               = 2;   //性别
+}
+
+message AskCreateRoom
+{
+	int32 mapid              = 1;
+	string passwd            = 2;      
+}
+
+message AskCreateRoomResp
+{
+	int32 state        = 1;  //创建状态 0 成功 -1 失败 
+	uint64 battleid    = 2;  //房间ID
+}
+
+message AskAddRoom
+{
+	uint64 battleid 	      = 1;
+	string passwd             = 2;
+}
+
+message AskAddRoomResp
+{
+	int32 state        = 1;  //加入状态 0 成功 -1 失败 
+}
+
+message AskReadyRoom
+{
+	uint64 battleid 	      = 1;
+	int32 state               = 2;   //1 准备 0 取消准备
+}
+
+
+message AskReadyRoomResp 
+{
+	int64 account_id        = 1;   // 账号ID
+	int32 state             = 2;   //创建状态 0 取消准备 1 准备
+}
+
+message Pos
+{
+	float x = 1;
+	float y = 2;
+	float z = 3;
+}
+
+message userData
+{
+	int64 account_id        = 1;   // 账号ID
+	Pos   pos               = 2;   // 位置
+}
+
+message AskUpdateUserData
+{
+	userData data  = 1;
+}
+
+message StartBattleResp
+{
+	int32 state        = 1;  //处于开始状态流程
+}
+
+message UpdateUsersDataResp
+{ 
+	repeated userData	user_data = 1;
+}
+
+message RoomList
+{
+	repeated uint64 battleid 	= 1;  //房间ID
+}
+

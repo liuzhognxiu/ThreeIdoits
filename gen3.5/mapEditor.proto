@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+enum MapCellStatus
+{
+	None = 0;
+	Normal = 1;
+	Block = 2;
+}
+
+message MapEditorData {
+	int32 Width = 1;
+	int32 Height = 2;
+	float CellWidth = 3;
+	float CellHeight = 4;
+	repeated MapEditorCellData	MapCells = 5;
+}
+
+message MapEditorCellData{
+	MapCellStatus Status = 1;
+	int32 X              = 2;
+	int32 Y              = 3;
+}

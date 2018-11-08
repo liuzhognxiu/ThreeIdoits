@@ -1,0 +1,56 @@
+/**
+* @file:   goods_info.proto
+* @author: Jumbo 
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+syntax="proto3";
+
+package uFramework;
+
+message Goods_Info{
+    /** 商品ID */
+    uint32 goods_id = 1;
+    /** 商品名 */
+    bytes name = 2;
+    /** 性别
+        不限制：100
+        male：101
+        female：102
+    */
+    uint32 sex = 3;
+    /** 等级限制 */
+    uint32 level_limit = 4;
+    /**  达人俱乐部等级限制
+（普通商品不用配置或配置0） */
+    int32 club_vip_level = 5;
+    /**  2Q币专区
+（普通商品不用配置或配置0） */
+    int32 qb_2 = 6;
+    uint32 consume_type = 7;
+    /** 计时单位
+        0 默认(天)
+        1 分钟
+        2 小时
+        3 天
+        4 月
+        5 年
+    */
+    uint32 time_unit = 8;
+    /** 是否商城上架显示
+        （根据需要配置上下架时间）
+        0 否
+        1 是
+    */
+    uint32 is_online = 9;
+    /** 能否购买
+        （已上架物品必然可买，根据需要配置上下架时间）
+        0 否
+        1 是
+    */
+    uint32 can_buy = 10;
+}
+
+message Goods_Info_Array {
+    repeated Goods_Info items = 1;
+}

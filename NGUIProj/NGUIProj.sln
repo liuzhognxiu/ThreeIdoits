@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGUIProj", "NGUIProj.csproj", "{8E19D55C-7DA0-5D07-2026-F035DFA667C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGUIProj.Editor", "NGUIProj.Editor.csproj", "{8C8CD49F-B654-C4AA-1D17-2B447134CB83}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E19D55C-7DA0-5D07-2026-F035DFA667C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E19D55C-7DA0-5D07-2026-F035DFA667C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E19D55C-7DA0-5D07-2026-F035DFA667C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E19D55C-7DA0-5D07-2026-F035DFA667C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C8CD49F-B654-C4AA-1D17-2B447134CB83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C8CD49F-B654-C4AA-1D17-2B447134CB83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C8CD49F-B654-C4AA-1D17-2B447134CB83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C8CD49F-B654-C4AA-1D17-2B447134CB83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

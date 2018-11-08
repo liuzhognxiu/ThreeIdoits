@@ -1,0 +1,17 @@
+syntax = "proto3";
+package game_error;
+
+enum ErrorCode
+{
+	ERROR_NONE                              = 0;
+	ERROR_NO_FREE_SERVER                    = 1;			// 对不起，服务器正忙！
+	
+	// 登录错误码
+	ERROR_LOGIN_ACCOUNT_EMPTY                     = 1000;         // 账号为空
+	ERROR_LOGIN_PWD_EMPTY                         = 1001;         // 密码不为空
+	ERROR_LOGIN_ACCOUNT_NOT_EXIST                 = 1002;         // 账号不存在
+	ERROR_LOGIN_PWD                               = 1003;         // 密码错误
+	ERROR_LOGIN_CREATE_ACCOUNT                    = 1004;         // 创建账号失败
+	ERROR_REGISTER_ACCOUNT_EXIST                  = 1010;         // 账号存在
+	
+}
