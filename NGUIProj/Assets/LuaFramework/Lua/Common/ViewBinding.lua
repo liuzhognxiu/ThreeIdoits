@@ -1,8 +1,7 @@
 require "MVC/Login/LoginView"
 require "MVC/test/testView"
 require "MVC/Map/MapView"
-require "MVC/UITips/UItips"
-
+require "MVC/UItips/UItips"
 
 ViewBinding = {}
 local this= {}
@@ -11,7 +10,7 @@ function ViewBinding.init( )
 	this.bindings = {};
 	this.bindings["LoginView"] = LoginView.new()
 	this.bindings["TestView"] = testView.new()
-	this.bindings["UItips"] = UItips:new()
+	this.bindings["UItips"] = UItips.new()
 	--this.bindings["MapView"] = MapView.new();
 end
 

@@ -72,7 +72,7 @@ function Game.OnInitOK()
     ViewBinding.init()
     print("Create UItips")
     UIManager.Create("UItips")
-    -- UIManager.Create("TestView");
+    UIManager.Create("LoginView");
     -- UIManager.Create("MapView");
 
     -- coroutine.start(this.test_closeLoginView);

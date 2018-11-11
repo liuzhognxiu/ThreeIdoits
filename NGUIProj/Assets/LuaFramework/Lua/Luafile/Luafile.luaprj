@@ -5,7 +5,7 @@
         <LuaFile RelativePath=".\eventlib.lua" />
         <LuaFile RelativePath=".\events.lua" />
         <LuaFile RelativePath=".\Main.lua" />
-        <Filter RelativePath=".\3rd" Toggle="true" >
+        <Filter RelativePath=".\3rd" Toggle="false" >
             <Filter RelativePath=".\cjson" Toggle="false" >
                 <LuaFile RelativePath=".\json2lua.lua" />
                 <LuaFile RelativePath=".\lua2json.lua" />
@@ -47,7 +47,7 @@
                 <LuaFile RelativePath=".\testrpc.lua" />
             </Filter>
         </Filter>
-        <Filter RelativePath=".\Common" Toggle="true" >
+        <Filter RelativePath=".\Common" Toggle="false" >
             <LuaFile RelativePath=".\define.lua" />
             <LuaFile RelativePath=".\functions.lua" />
             <LuaFile RelativePath=".\protocal.lua" />
@@ -58,7 +58,7 @@
             <LuaFile RelativePath=".\MessageCtrl.lua" />
             <LuaFile RelativePath=".\PromptCtrl.lua" />
         </Filter>
-        <Filter RelativePath=".\Logic" Toggle="true" >
+        <Filter RelativePath=".\Logic" Toggle="false" >
             <LuaFile RelativePath=".\CtrlManager.lua" />
             <LuaFile RelativePath=".\Game.lua" />
             <LuaFile RelativePath=".\LuaClass.lua" />
@@ -105,6 +105,9 @@
                 <LuaFile RelativePath=".\MapLogic.lua" />
                 <LuaFile RelativePath=".\MapModel.lua" />
                 <LuaFile RelativePath=".\MapView.lua" />
+            </Filter>
+            <Filter RelativePath=".\UITips" Toggle="false" >
+                <LuaFile RelativePath=".\UItips.lua" />
             </Filter>
         </Filter>
         <Filter RelativePath=".\pomelo" Toggle="true" >

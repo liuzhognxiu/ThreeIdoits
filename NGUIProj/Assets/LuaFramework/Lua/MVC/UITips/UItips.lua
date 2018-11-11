@@ -20,8 +20,11 @@ function UItips:Reset()
 end
 
 function UItips:init()
-    this.gameObject = resMgr:loadPrefab("Prefabs/NpcDialog")
-    this.luaBehavior = this.gameObject:GetComponent('LuaBehavior')
+	this.btnBehaviour = nil;	
+	
+	this.root = GameObject.Find('UI Root');
+    this.gameObject = resMgr:LoadPrefab("Prefabs/NpcDialog",this.root)
+    this.luaBehavior = this.gameObject:GetComponent('LuaBehaviour')
     this.transform = this.gameObject.transform
 
     this.sp_npcHead = findChildRecursively(this.transform,"sp_npcHead").gameObject:GetComponent('UISprite')
@@ -29,10 +32,14 @@ function UItips:init()
     this.lb_NpcName = findChildRecursively(this.transform,"lb_NpcName").gameObject:GetComponent('UILabel')
     this.lb_NpcMessage = findChildRecursively(this.transform,"lb_NpcMessage").gameObject:GetComponent('UILabel')
 
-    this.luaBehavior:AddClick(this.sp_bg.transform,self.OnNextClick)
-    self:AddCollider()
+    this.luaBehavior:AddClick(this.sp_bg.gameObject,self.OnNextClick)
+   -- self:AddCollider()
 
     layerManager:SetLayer(this.gameObject,UILayerType.Tips)
+end
+
+function OnNextClick()
+	print("next")
 end
 
 function UItips:AddCollider()
