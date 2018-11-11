@@ -70,7 +70,8 @@ function Game.OnInitOK()
     test:init();
     ]]--
     ViewBinding.init()
-    UIManager.Create("LoginView");
+    print("Create UItips")
+    UIManager.Create("UItips")
     -- UIManager.Create("TestView");
     -- UIManager.Create("MapView");
 
@@ -79,19 +80,19 @@ function Game.OnInitOK()
     -- local loginView = LoginView.new();
     -- loginView:init();
        
-		-- Utility.ShowCenterInfo("test_decode_cycle",UnityEngine.Color.blue)
+	Utility.ShowCenterInfo("test_decode_cycle",UnityEngine.Color.blue)
 		-- Utility.ShowCenterInfo("123456",UnityEngine.Color.blue)
 		-- Utility.ShowCenterTipsBig("qwerrty",UnityEngine.Color.black)
 		-- Utility.ShowTips("asdfgh",UnityEngine.Color.green)
     -- Utility.ShowRedTips("我是右手边1")
 
     --read table
-    local testTable = goods_info_pb.Goods_Info_Array()
-    local data = TableManager:LuaReadDataConfig("goods_info.data")
-    if testTable ~= nil and data ~= nil then
-        testTable:ParseFromString(data)
-        log("@@@@@@@@@@@@@@@@@@@@@@@ " ..  testTable.items[1].goods_id)
-    end
+    -- local testTable = goods_info_pb.Goods_Info_Array()
+    -- local data = TableManager:LuaReadDataConfig("goods_info.data")
+    -- if testTable ~= nil and data ~= nil then
+    --     testTable:ParseFromString(data)
+    --     log("@@@@@@@@@@@@@@@@@@@@@@@ " ..  testTable.items[1].goods_id)
+    -- end
 	
     -- local mapTable = mapEditor_pb.MapEditorData();
     -- local mapData = MapManager:LuaReadDataConfig("map_02.bytes")
@@ -146,10 +147,10 @@ function Game.OnInitOK()
 
 	---CreateScene
 	----CreatePlayer
-	local TestPlayer = PlayerTest.new()		
-	this.SceneMgr = SceneManager.new()
-	this.SceneMgr:SetMainPlayer(TestPlayer)
-	this.SceneMgr:CreatrScene()
+	-- local TestPlayer = PlayerTest.new()		
+	-- this.SceneMgr = SceneManager.new()
+	-- this.SceneMgr:SetMainPlayer(TestPlayer)
+	-- this.SceneMgr:CreatrScene()
 	----
     --end
 
@@ -174,19 +175,19 @@ function Game.test_coroutine()
     coroutine.wait(1);	
     logWarn("2222");
 	
-    local www = WWW("http://bbs.ulua.org/readme.txt");
-    coroutine.www(www);
-    logWarn(www.text);    	
+    -- local www = WWW("http://bbs.ulua.org/readme.txt");
+    -- coroutine.www(www);
+    -- logWarn(www.text);    	
 
-	-- 	Utility.ShowTips("我是左手边",UnityEngine.Color.red)
-	-- coroutine.wait(0.3);
-	-- 	Utility.ShowTips("我是左手边",UnityEngine.Color.blue)
-	-- coroutine.wait(0.3);
-	-- 	Utility.ShowTips("我是左手边",UnityEngine.Color.black)
-	-- coroutine.wait(0.3);
-	-- 	Utility.ShowTips("我是左手边",UnityEngine.Color.yellow)
-	-- coroutine.wait(0.3);	
-	-- 	Utility.ShowTips("我是左手边",UnityEngine.Color.red)	
+		Utility.ShowTips("我是左手边",UnityEngine.Color.red)
+	coroutine.wait(0.3);
+		Utility.ShowTips("我是左手边",UnityEngine.Color.blue)
+	coroutine.wait(0.3);
+		Utility.ShowTips("我是左手边",UnityEngine.Color.black)
+	coroutine.wait(0.3);
+		Utility.ShowTips("我是左手边",UnityEngine.Color.yellow)
+	coroutine.wait(0.3);	
+		Utility.ShowTips("我是左手边",UnityEngine.Color.red)	
 
 end
 
