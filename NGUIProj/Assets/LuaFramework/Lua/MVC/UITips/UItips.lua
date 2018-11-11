@@ -4,6 +4,7 @@ UItips = class(ViewBase)
 
 local this = {}
 
+local SpeakMessage= ""
 function UItips:ctor()
 end
 
@@ -36,6 +37,30 @@ function UItips:init()
    -- self:AddCollider()
 
     layerManager:SetLayer(this.gameObject,UILayerType.Tips)
+end
+
+function UItips:show(NpcName,NpcSpeak)
+	print("---------------------------------------")
+	this.lb_NpcName.text = NpcName
+	this.lb_NpcMessage.text = NpcSpeak
+end
+
+function UItips:SelfWritingText(NpcName,NpcSpeak)
+	this.lb_NpcName.text = NpcName
+	coroutine.start(self.Writing,NpcSpeak)
+end
+
+function UItips.Writing(NpcSpeak)
+	k=string.len(NpcSpeak)
+	list1={}
+	for i=1,k,3 do	
+		list1[i]=string.sub(NpcSpeak,i,i+2)
+	end
+	this.lb_NpcMessage.text =" "
+	for i=1,k,3 do
+		this.lb_NpcMessage.text = this.lb_NpcMessage.text..tostring(list1[i]) 
+		coroutine.wait(0.1)
+	end
 end
 
 function OnNextClick()

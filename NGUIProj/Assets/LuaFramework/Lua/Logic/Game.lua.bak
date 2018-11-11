@@ -1,4 +1,4 @@
-require "3rd/pblua/login_pb"
+﻿require "3rd/pblua/login_pb"
 require "3rd/pbc/protobuf"
 require "3rd/pblua/goods_info_pb"
 require "3rd/pblua/mapEditor_pb"
@@ -72,7 +72,8 @@ function Game.OnInitOK()
     ViewBinding.init()
     print("Create UItips")
     UIManager.Create("UItips")
-     UIManager.Create("LoginView);
+	UIManager.GetPanel("UItips"):SelfWritingText("请回答1988","所谓爱一个人，不是喜欢对方的体温，而是要跟对方的体温越来越接近。所谓爱一个人是，即使对方一直折磨你，你想要一直讨厌对方，但怎么也讨厌不起来。所谓爱是，不是不讨厌，而是绝对不能讨厌的意思。  ")
+    UIManager.Create("LoginView");
     -- UIManager.Create("MapView");
 
     -- coroutine.start(this.test_closeLoginView);

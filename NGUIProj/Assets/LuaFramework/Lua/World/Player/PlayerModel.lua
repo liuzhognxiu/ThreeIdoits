@@ -15,7 +15,7 @@ end
 
 function PlayerModel:setPlayerName( Name )
 	self.m_Name = Name
-	--通知UI组件更新
+	--閫氱煡UI缁勪欢鏇存柊
 	--self:OnPropertyChanged(self.PLAYER_NAME_CREATE, self.m_Name)
 end
 

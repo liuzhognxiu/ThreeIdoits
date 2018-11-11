@@ -16,7 +16,7 @@ function enum(t)
 	return enumtable
 end
 
---»ñÈ¡Ã¶¾ÙÃû³Æ
+--è·å–æšä¸¾åç§°
 function GetEunmName(Type,UILayerType)
 	for k,v in pairs(UILayerType) do
 		if v == Type then
@@ -25,7 +25,7 @@ function GetEunmName(Type,UILayerType)
 	end
 end
 
---»ñÈ¡Ã¶¾ÙµÄ×ÜÊı
+--è·å–æšä¸¾çš„æ€»æ•°
 function GetEunmNum(UILayerType)
 	local Num = 0
 	for k,v in pairs(UILayerType) do
@@ -48,19 +48,19 @@ UILayerType = enum
 {
     "Base = -30",
     "Resident = 0",
- --½çÃæ²ã
+ --ç•Œé¢å±‚
     "Panel = 30",
- --´°¿Ú²ã
+ --çª—å£å±‚
     "Window = 60",
- --ÌáÊ¾²ã
+ --æç¤ºå±‚
     "Tips = 90",
- --ĞÂÊÖÒıµ¼²ã
+ --æ–°æ‰‹å¼•å¯¼å±‚
     "Guide = 120", 
- --½çÃæ×î¶¥²ã
+ --ç•Œé¢æœ€é¡¶å±‚
     "TopWindow = 150",
- --¶ÌÏßÖØÁ¬
+ --çŸ­çº¿é‡è¿
     "Connect = 180",
- --µ¯¿òÌáÊ¾
+ --å¼¹æ¡†æç¤º
     "Hint = 210",
 }
 

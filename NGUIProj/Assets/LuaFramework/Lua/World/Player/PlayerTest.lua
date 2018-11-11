@@ -6,8 +6,8 @@ PlayerTest = class(PlayerEntity)
 local this = {}
 
 --[[
-countLabel表的创建是为了能让c#的awake, ondestroy能够回调到！
-表名是prefab的名字，luaframework是根据prefab名进行查询的
+countLabel琛ㄧ殑鍒涘缓鏄负浜嗚兘璁ヽ#鐨刟wake, ondestroy鑳藉鍥炶皟鍒帮紒
+琛ㄥ悕鏄痯refab鐨勫悕瀛楋紝luaframework鏄牴鎹畃refab鍚嶈繘琛屾煡璇㈢殑
 ]]--
 countLabel = {}
 
