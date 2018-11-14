@@ -52,7 +52,7 @@ function Game.OnInitOK()
 
 	layerManager:layerInit()
     
-     CtrlManager.Init();
+    --  CtrlManager.Init();
     -- local ctrl = CtrlManager.GetCtrl(CtrlNames.Prompt);
     -- if ctrl ~= nil and AppConst.ExampleMode == 1 then
     --     ctrl:Awake();
@@ -64,15 +64,16 @@ function Game.OnInitOK()
 
     ViewBinding.init()
     
-    local Playerdata =  Utility.LoadTextFile(UnityEngine.Application.persistentDataPath.."/PlayerData",true)
-    if Playerdata ~= nil then
-        this.GameManager.Player:SetTable(StrToTable(Playerdata))
-        UIManager.Create("UItips")
-	    UIManager.GetPanel("UItips"):SelfWritingText(this.GameManager.Player:GetTable()['name'],"今天也要加油鸭")
-    else
-        UIManager.Create("UICreatePlayer")
-    end
+    -- local Playerdata =  Utility.LoadTextFile(UnityEngine.Application.persistentDataPath.."/PlayerData",true)
+    -- if Playerdata ~= nil then
+    --     this.GameManager.Player:SetTable(StrToTable(Playerdata))
+    --     UIManager.Create("UItips")
+	--     UIManager.GetPanel("UItips"):SelfWritingText(this.GameManager.Player:GetTable()['name'],"今天也要加油鸭")
+    -- else
+    --     UIManager.Create("UICreatePlayer")
+    -- end
 
+    UIManager.Create("UISelectNpcList")
     logWarn('LuaFramework InitOK--->>>');
 end
 

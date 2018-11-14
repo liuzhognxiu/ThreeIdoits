@@ -24,10 +24,18 @@ end
 
 function MapCellView:UpdateStatus( status )
 	if status == mapEditor_pb.Normal then
-		log("aaaaaaaaaaaa")
 		self.m_transform:GetComponent('UISprite').spriteName = "normal";
 	elseif status == mapEditor_pb.Block then
-		log("bbbbbbbbbbbb")
 		self.m_transform:GetComponent('UISprite').spriteName = "block";
 	end
+end
+
+
+MapCell = {};
+function MapCell.Awake( obj )
+	-- body
+end
+
+function MapCell.Start()
+	-- body
 end

@@ -4,6 +4,11 @@ require "MVC/Map/MapLogic"
 MapView = class(ViewBase)
 local this = {}
 
+
+function MapView.Awake(obj)
+	-- body
+end
+
 function MapView:ctor()
 	self.gameObject = nil;
 	self.transform = nil;

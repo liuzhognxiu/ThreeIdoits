@@ -1,4 +1,5 @@
 require "Framework/EventCenter"
+require "MVC/Player/PlayerModeldata"
 
 LuaGameManager = {}
 
@@ -12,4 +13,9 @@ function LuaGameManager.GetEventDispatcher( )
 	end
 
 	return m_eventDispatcher;
+end
+
+function LuaGameManager:Init()
+    print("-----------------------------------------")
+	this.Player = PlayerModeldata.new()
 end

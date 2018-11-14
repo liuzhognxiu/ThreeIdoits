@@ -14,7 +14,7 @@ function EventController:AddEventListener( eventType, handler )
 		self.m_theRouter[eventType] = handler;
 	end
 
-	logWarn("############### EventController:AddEventListener " .. tableCount(self.m_theRouter) .. " " .. eventType)
+	-- logWarn("############### EventController:AddEventListener " .. tableCount(self.m_theRouter) .. " " .. eventType)
 end
 
 function EventController:Cleanup()
@@ -31,7 +31,7 @@ function EventController:RemoveEventListener( eventType )
 end
 
 function EventController:TriggerEvent( eventType , ...)
-	logWarn("TriggerEvent self.m_theRouter count is: " .. tableCount(self.m_theRouter))
+	-- logWarn("TriggerEvent self.m_theRouter count is: " .. tableCount(self.m_theRouter));
 	if (ContainsInTable(self.m_theRouter, eventType)) then
 		self.m_theRouter[eventType](...);
 	else

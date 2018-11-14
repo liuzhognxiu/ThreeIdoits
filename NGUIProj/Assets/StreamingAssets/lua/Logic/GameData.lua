@@ -2,22 +2,17 @@ require "MVC/test/testModel"
 require "MVC/Login/LoginModel"
 require "MVC/Map/MapModel"
 require "MVC/Map/MapCellModel"
+require "MVC/UIModel/SelectNpcModel"
 
 GameData = {}
 
 local this = GameData;
 this.mapCells = {}
 local m_testModel = nil;
-
-function GameData.ctor()
-	
-end
-
 function GameData.TestModel() 
 	if m_testModel == nil then 
 		m_testModel = testModel.new();
 	end
-
 	return m_testModel;
 end
 
@@ -70,6 +65,19 @@ function GameData.getMapCell( x, y )
 	return nil
 end
 
+function GameData.ctor()
+	
+end
+
+local m_SelectNpcModel = nil
+
+function GameData.SelectNpcModel()
+	print("==========================")
+	if m_SelectNpcModel == nil then
+		m_SelectNpcModel = SelectNpcModel.new()
+	end
+	return m_SelectNpcModel
+end
 
 
 

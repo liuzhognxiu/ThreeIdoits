@@ -52,7 +52,7 @@ function LoginView:init()
 	-- this.luaBehavior:AddClick(this.btnRegister, self.OnRegister)
 	self:AddCollider()
 	
-	layerManager:SetLayer(this.gameObject,UILayerType.Base)
+	layerManager:SetLayer(this.gameObject,UILayerType.Window)
 end
 
 function LoginView:AddCollider()
