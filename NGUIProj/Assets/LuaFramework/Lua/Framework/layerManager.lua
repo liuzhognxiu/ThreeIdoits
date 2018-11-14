@@ -4,7 +4,7 @@ layerManager = {}
 function layerManager:layerInit()
 	self.mLayerDic = {}
 	self.mParent = GameObject.Find("UI Root")
-	--GameObject.DontDestroyOnLoad(mParent)	
+	GameObject.DontDestroyOnLoad(mParent)	
 	local num = GetEunmNum(UILayerType)
 	for i = -1, num-2 do
 		local obj = GetEunmName(i*30,UILayerType)		
@@ -16,7 +16,6 @@ function layerManager:layerInit()
 	end
 end
 
---�1�7�1�7�1�7�1�7�1�7�2�5�1�7�1�7�0�8�1�7�0�0�1�7�1�7�1�7�1�7�1�7
 function layerManager:CreateGameObjerct(name,UILayerType)
 	local layer = GameObject.New()
 	layer.transform.name = name
@@ -26,7 +25,7 @@ function layerManager:CreateGameObjerct(name,UILayerType)
 	return layer
 end
 
-function layerManager:SetLayer(currentGameObject,LayerType)		
+function layerManager:SetLayer(currentGameObject,LayerType)	
 	local t = LayerType
 	local layerTypeName = GetEunmName(LayerType,UILayerType)
 	local layerObj =  self.mLayerDic[LayerType]

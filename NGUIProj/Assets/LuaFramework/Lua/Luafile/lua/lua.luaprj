@@ -13,7 +13,7 @@
                 <LuaFile RelativePath=".\test.lua" />
                 <LuaFile RelativePath=".\util.lua" />
             </Filter>
-            <Filter RelativePath=".\luabitop" Toggle="false" >
+            <Filter RelativePath=".\luabitop" Toggle="true" >
                 <LuaFile RelativePath=".\bitbench.lua" />
                 <LuaFile RelativePath=".\bittest.lua" />
                 <LuaFile RelativePath=".\installpath.lua" />
@@ -72,13 +72,14 @@
             <LuaFile RelativePath=".\UIManager.lua" />
             <LuaFile RelativePath=".\ViewBase.lua" />
         </Filter>
-        <Filter RelativePath=".\Logic" Toggle="true" >
+        <Filter RelativePath=".\Logic" Toggle="false" >
             <LuaFile RelativePath=".\CtrlManager.lua" />
             <LuaFile RelativePath=".\Game.lua" />
             <LuaFile RelativePath=".\GameData.lua" />
             <LuaFile RelativePath=".\LuaClass.lua" />
             <LuaFile RelativePath=".\LuaGameManager.lua" />
             <LuaFile RelativePath=".\Network.lua" />
+            <LuaFile RelativePath=".\Game - 副本.lua" />
         </Filter>
         <Filter RelativePath=".\Luafile" Toggle="true" >
             <Filter RelativePath=".\lua" Toggle="true" />
@@ -102,8 +103,16 @@
                 <LuaFile RelativePath=".\testModel.lua" />
                 <LuaFile RelativePath=".\testView.lua" />
             </Filter>
-            <Filter RelativePath=".\UITips" Toggle="true" >
-                <LuaFile RelativePath=".\UItips.lua" />
+            <Filter RelativePath=".\Player" Toggle="false" >
+                <LuaFile RelativePath=".\PlayerModel.lua" />
+            </Filter>
+            <Filter RelativePath=".\UILogic" Toggle="true" />
+            <Filter RelativePath=".\UIModel" Toggle="true" />
+            <Filter RelativePath=".\UIView" Toggle="false" >
+                <LuaFile RelativePath=".\UICreatePlayer.lua" />
+                <Filter RelativePath=".\UITips" Toggle="true" >
+                    <LuaFile RelativePath=".\UItips.lua" />
+                </Filter>
             </Filter>
         </Filter>
         <Filter RelativePath=".\pomelo" Toggle="true" />
@@ -130,7 +139,7 @@
             <Filter RelativePath=".\Map" Toggle="true" >
                 <LuaFile RelativePath=".\SceneManager.lua" />
             </Filter>
-            <Filter RelativePath=".\Player" Toggle="true" >
+            <Filter RelativePath=".\Player" Toggle="false" >
                 <LuaFile RelativePath=".\PlayerEntity.lua" />
                 <LuaFile RelativePath=".\PlayerModel.lua" />
                 <LuaFile RelativePath=".\PlayerTest.lua" />
