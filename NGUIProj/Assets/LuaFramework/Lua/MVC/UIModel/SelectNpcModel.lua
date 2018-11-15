@@ -5,8 +5,8 @@ SelectNpcModel = class(NotifyPropChanged)
 local  this = {}
 
 function SelectNpcModel:ctor()
-   this.NpcList = {}
-   self.KEY_NPCGRID = "NpcList"
+   this.NpcList = 234
+   self.KEY_NPCGRID = "SelectNpcMpdel_NpcList"
 end
 
 function SelectNpcModel:SetNpcList(npclist)

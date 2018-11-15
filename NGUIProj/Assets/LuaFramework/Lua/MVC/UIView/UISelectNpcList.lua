@@ -28,24 +28,22 @@ function UISelectNpcList:init( ... )
    this.NPClistGrid = this.NPCListGO:GetComponent("UIGridContainer")
 
    local table = {}
-   self:UpdateNpcList(table)
+   --self:UpdateNpcList(table)
 
    layerManager:SetLayer(this.gameObject,UILayerType.Window)
 end
 
-function UISelectNpcList:UpdateNpcList( NPCList )
-    this.NPClistGrid.MaxCount = 4
-    for i=1,4 do
+function UISelectNpcList:UpdateNpcList(NpcList)
+    this.NPClistGrid.MaxCount = #NpcList
+    for i=1,#NpcList do
+        local lb_NpcName = this.NPClistGrid.controlList[i-1].transform:Find('lb_NpcName'):GetComponent('UILabel')
+        lb_NpcName.text = NpcList[i].name
+        local sp_NpcHead = this.NPClistGrid.controlList[i-1].transform:Find('sp_NpcHead'):GetComponent('UISprite')
+        sp_NpcHead.spriteName = NpcList[i].Head
         local fun = function()          
-            print(123)
+            print(lb_NpcName.text)
         end 
         --print(#NPClistGrid.controlList)
         this.luaBehavior:AddClick(this.NPClistGrid.controlList[i-1],fun)
-
-        local lb_NpcName = this.NPClistGrid.controlList[i-1].transform:Find('lb_NpcName'):GetComponent('UILabel')
-        lb_NpcName.text = "NPC的名字"
-        local sp_NpcHead = this.NPClistGrid.controlList[i-1].transform:Find('sp_NpcHead'):GetComponent('UISprite')
-        sp_NpcHead.spriteName = string.format( "[emoticon0%d]",i )
-
     end
 end

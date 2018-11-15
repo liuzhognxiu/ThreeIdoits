@@ -85,7 +85,7 @@ end
 
 function testView:UpdateCount( count )
 	this.countLabel.text = count;
-	this.ScrollUGC.MaxShowCount = count
+	--this.ScrollUGC.MaxShowCount = count
 	--testlistdata，只是为了测试
 --[[	local a1 = TestListData.New(1)
 	local a2 = TestListData.New(2)

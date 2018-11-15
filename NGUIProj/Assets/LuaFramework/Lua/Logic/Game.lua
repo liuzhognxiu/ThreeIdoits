@@ -26,7 +26,7 @@ require "Framework/layerManager"
 require "World/Map/SceneManager"
 require "World/Player/PlayerTest"
 require "MVC/Player/PlayerModeldata"
-
+require("MVC/NPC/TestNpcModel")
 --管理器--
 Game = {};
 local this = Game;
@@ -74,6 +74,21 @@ function Game.OnInitOK()
     -- end
 
     UIManager.Create("UISelectNpcList")
+    local NPCTable = {}
+    for i=1,6 do
+        local npc = TestNpcModel.new()     
+        npc.name = string.format( "我是小%d",i)
+        if i %2 == 0 then
+            npc.sex = 1
+        else
+            npc.sex = 0
+        end
+        npc.Position = 1
+        npc.Head = string.format( "[emoticon0%d]",i )
+        npc:Init()
+        table.insert(NPCTable, i, npc )
+    end
+    GameData.SelectNpcModel():SetNpcList(NPCTable)
     logWarn('LuaFramework InitOK--->>>');
 end
 

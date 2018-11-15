@@ -16,6 +16,5 @@ function LuaGameManager.GetEventDispatcher( )
 end
 
 function LuaGameManager:Init()
-    print("-----------------------------------------")
 	this.Player = PlayerModeldata.new()
 end
