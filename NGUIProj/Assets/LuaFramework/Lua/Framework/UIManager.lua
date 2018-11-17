@@ -5,6 +5,7 @@ UIManager = {}
 function UIManager.Create(name)
 	if (name ~= nil) then
 		ViewBinding.Get(name):Show()
+		return 	ViewBinding.Get(name)
 	else
 		logError("can't find obj by name: " .. name)
 	end

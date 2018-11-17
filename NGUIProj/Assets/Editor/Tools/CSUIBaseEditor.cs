@@ -25,18 +25,20 @@ public class CSUIBaseEditor : Editor
     /// </summary>
     public const string MEMBER_DESTORY = "function {0}.OnDestroy()";
 
-
-    /// <summary>
-    /// {0}：变量名
-    /// {1}：变量类型
-    /// </summary>
-    public const string MEMBER_ASSIGN =
-        "private {1} {0} __LK__ get __LK__ return {3} ?? ({3} = Get<{1}>({2}));__RK____RK__";
-
     /// <summary>
     /// 存取UI模板路径
     /// </summary>
     public const string UIVIEW_PATH = "/LuaFramework/lua/MVC/UIView";
+
+    /// <summary>
+    /// 存放UILogic的路径
+    /// </summary>
+    public const string UILOGIC_PATH = "/LuaFramework/lua/MVC/UILogic";
+
+    /// <summary>
+    /// 存放UIModel的路径
+    /// </summary>
+    public const string UIMODEL_PATH = "/LuaFramework/lua/MVC/UIModel";
 
     /// <summary>
     /// {0}：UI名称
@@ -45,7 +47,8 @@ public class CSUIBaseEditor : Editor
     /// </summary>
     ///         "    {2}\r\n\r\n" +
     public const string BEHAVIOUR_FORMAT =
-        "{0} = Class(ViewBase)\r\n \r\n" +
+        "require(\"MVC/UILogic/{0}Logic\")" +
+        "{0} = class(ViewBase)\r\n \r\n" +
         "local this = {2} \r\n" +
         "function {0}:ctor() \r\n" +
         "end \r\n" +
@@ -55,7 +58,7 @@ public class CSUIBaseEditor : Editor
         "        this.gameObject = nil\r\n" +
         "    end\r\n" +
         "end\r\n\r\n" +
-        "function {0}:init()" +
+        "function {0}:init()\r\n" +
         "    this.btnBehaviour = nil\r\n" +
         "    this.root = GameObject.Find('UI Root')\r\n" +
         "    this.gameObject = resMgr:LoadPrefab(\"Prefabs/{0}\",this.root)\r\n" +
@@ -69,7 +72,30 @@ public class CSUIBaseEditor : Editor
         "end\r\n";
     #endregion
 
-    [MenuItem("Tools/生成UI代码", false, 1101)]
+    /// <summary>
+    /// 生成luamModel代码
+    /// {0}UI名称
+    /// {1} {}
+    /// </summary>
+    public const string LOGICBEHAVIOUR_FORMAT =
+    "require \"MVC/UIModel/{0}Model\"\r\n" +
+    "require \"Framework/LuaLogic\"\r\n\r\n" +
+    "{0}Logic = class(LuaLogic)\r\n\r\n" +
+    "local this = {1}\r\n\r\n" +
+    "function {0}Logic:ctor()\r\n" +
+    "end\r\n\r\n" +
+    "function {0}Logic:Initialize(view)\r\n" +
+    "   this.view  = view\r\n" +
+    "   self:ItemSource(GameData.{0}Model())\r\n" +
+    "end\r\n";
+
+    public const string MODELBEHAVIOUR_FORMAT =
+    "{0}Model = class(NotifyPropChanged)\r\n\r\n" +
+    "local  this = {1}\r\n" +
+    "function {0}Model:ctor()\r\n\r\n" +
+    "end\r\n";
+
+    [MenuItem("Assets/Tools/生成UI代码")]
     public static void CreateUIBase()
     {
         GameObject mainObject = Selection.activeGameObject;
@@ -111,16 +137,41 @@ public class CSUIBaseEditor : Editor
 
 
         string code = string.Format(BEHAVIOUR_FORMAT, mainTrans.name, memberCode, "{}");
+
+        string modelcode = string.Format(MODELBEHAVIOUR_FORMAT, mainTrans.name.Substring(2), "{}");
+
+        string LogicCode = string.Format(LOGICBEHAVIOUR_FORMAT, mainTrans.name.Substring(2), "{}");
         //code = code.Replace("__LK__", "{");
         //code = code.Replace("__RK__", "}");
 
         string path = Application.dataPath + UIVIEW_PATH;
 
+        string modelPath = Application.dataPath + UIMODEL_PATH;
+
+        string logicPath = Application.dataPath + UILOGIC_PATH;
+
         string behaviourCodeFile = Path.Combine(path, mainTrans.name) + ".lua";
+
+        string modelbehaviourCodeFile = Path.Combine(modelPath, mainTrans.name + "Model") + ".lua";
+
+        string logicbehaviourCodeFile = Path.Combine(logicPath, mainTrans.name + "Logic") + ".lua";
+
 
         using (FileStream fs = File.Create(behaviourCodeFile))
         {
             byte[] bytes = Encoding.Default.GetBytes(code);
+            fs.Write(bytes, 0, bytes.Length);
+        }
+
+        using (FileStream fs = File.Create(modelbehaviourCodeFile))
+        {
+            byte[] bytes = Encoding.Default.GetBytes(modelcode);
+            fs.Write(bytes, 0, bytes.Length);
+        }
+
+        using (FileStream fs = File.Create(logicbehaviourCodeFile))
+        {
+            byte[] bytes = Encoding.Default.GetBytes(LogicCode);
             fs.Write(bytes, 0, bytes.Length);
         }
 

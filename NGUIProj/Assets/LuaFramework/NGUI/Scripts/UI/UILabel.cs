@@ -1916,12 +1916,19 @@ public class UILabel : UIWidget
 			text = Mathf.RoundToInt(UIProgressBar.current.value * 100f) + "%";
 	}
 
-	/// <summary>
-	/// Convenience function, in case you wanted to automatically set some label's text
-	/// by selecting a value in the UIPopupList.
-	/// </summary>
+    public void SetCurrentNum()
+    {
+        if (UIProgressBar.current != null)
+            text = Mathf.RoundToInt(UIProgressBar.current.value * 100f).ToString();
+    }
 
-	public void SetCurrentSelection ()
+
+    /// <summary>
+    /// Convenience function, in case you wanted to automatically set some label's text
+    /// by selecting a value in the UIPopupList.
+    /// </summary>
+
+    public void SetCurrentSelection ()
 	{
 		if (UIPopupList.current != null)
 		{

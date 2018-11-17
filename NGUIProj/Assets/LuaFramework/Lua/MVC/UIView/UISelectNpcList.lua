@@ -40,8 +40,11 @@ function UISelectNpcList:UpdateNpcList(NpcList)
         lb_NpcName.text = NpcList[i].name
         local sp_NpcHead = this.NPClistGrid.controlList[i-1].transform:Find('sp_NpcHead'):GetComponent('UISprite')
         sp_NpcHead.spriteName = NpcList[i].Head
-        local fun = function()          
-            print(lb_NpcName.text)
+        local fun = function() 
+            if UIManager.GetPanel("UINPCEvent") then
+                UIManager.Close("UINPCEvent")       
+            end  
+            UIManager.Create("UINPCEvent"):ShowBydata(NpcList[i])           
         end 
         --print(#NPClistGrid.controlList)
         this.luaBehavior:AddClick(this.NPClistGrid.controlList[i-1],fun)

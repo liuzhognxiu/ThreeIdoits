@@ -25,6 +25,7 @@ public class UILabelWrap
 		L.RegFunction("CalculateOffsetToFit", CalculateOffsetToFit);
 		L.RegFunction("SetCurrentProgress", SetCurrentProgress);
 		L.RegFunction("SetCurrentPercent", SetCurrentPercent);
+		L.RegFunction("SetCurrentNum", SetCurrentNum);
 		L.RegFunction("SetCurrentSelection", SetCurrentSelection);
 		L.RegFunction("Wrap", Wrap);
 		L.RegFunction("UpdateNGUIText", UpdateNGUIText);
@@ -435,6 +436,22 @@ public class UILabelWrap
 			ToLua.CheckArgsCount(L, 1);
 			UILabel obj = (UILabel)ToLua.CheckObject<UILabel>(L, 1);
 			obj.SetCurrentPercent();
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetCurrentNum(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			UILabel obj = (UILabel)ToLua.CheckObject<UILabel>(L, 1);
+			obj.SetCurrentNum();
 			return 0;
 		}
 		catch (Exception e)

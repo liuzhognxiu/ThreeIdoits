@@ -5,9 +5,7 @@ SelectNpcLogic = class(LuaLogic)
 
 local this = {} 
 
-this.view = nil
-this.NpcListUpdate = nil
-function SelectNpcLogic:Ctor()
+function SelectNpcLogic:ctor()
 end
 
 function SelectNpcLogic:Initialize(view)
