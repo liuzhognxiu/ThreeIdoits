@@ -31,17 +31,15 @@ end
 
 function UINPCEvent:Reset()
     if this.gameObject ~= nil then
-        GameObject.Destory(this.gameObject)
+        GameObject.Destroy(this.gameObject)
         this.gameObject = nil
     end
 end
-
 
 function UINPCEvent:ShowBydata(NpcData)
     this.spNpcHead.spriteName = NpcData.Head
     this.lbNpcName.text = NpcData.name
     this.Position = NpcData.Position
-    print( this.slidLoyalty.value.."=================================")
     this.slidLoyalty.value = 1
     this.slidEQ.value = 1
     this.slidcharm.value = 1

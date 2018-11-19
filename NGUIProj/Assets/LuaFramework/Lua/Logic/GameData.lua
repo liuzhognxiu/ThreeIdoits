@@ -78,5 +78,6 @@ function GameData.SelectNpcModel()
 	return m_SelectNpcModel
 end
 
+local NPCTable = nil
 
 

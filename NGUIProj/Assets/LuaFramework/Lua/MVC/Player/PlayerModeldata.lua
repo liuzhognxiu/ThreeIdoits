@@ -38,11 +38,16 @@ function PlayerModeldata:SetPlayerCharm( charm )
 end
 
 function PlayerModeldata:SetInterpersonalI(interpersonal)
+    this.table["interpersonal"] = interpersonal
     this.interpersonal = interpersonal
 end
 
 function PlayerModeldata:AddInterpersonal( NpcPlayer )
-    table.insert( this.interpersonal, NpcPlayer )
+    table.insert(this.table["interpersonal"], NpcPlayer)
+end
+
+function PlayerModeldata:GetInterpersonal()
+    return  this.interpersonal
 end
 
 function PlayerModeldata:SetPlayerAge(age)
@@ -61,4 +66,5 @@ function PlayerModeldata:SetTable(PlayerTabel)
     this.Position = PlayerTabel['Position']
     this.charm = PlayerTabel['charm']
     this.age = PlayerTabel['age']
+    this.interpersonal = PlayerTabel['interpersonal']
 end

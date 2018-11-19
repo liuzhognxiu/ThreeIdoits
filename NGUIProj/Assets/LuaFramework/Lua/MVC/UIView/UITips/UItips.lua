@@ -4,14 +4,16 @@ UItips = class(ViewBase)
 
 local this = {}
 
-local SpeakMessage= ""
+local SpeakMessage= {}
 this.WritingCoroutine = nil
+
+
 function UItips:ctor()
 end
 
 function UItips:Reset()
     if this.gameObject ~= nil then
-        GameObject.Destory(this.gameObject)
+        GameObject.Destroy(this.gameObject)
         this.gameObject = nil
     end
 
@@ -55,6 +57,7 @@ end
 
 
 function UItips.Writing(NpcSpeak)
+  
 	k=string.len(NpcSpeak)
 	list1={}
 	for i=1,k,3 do	
@@ -70,7 +73,9 @@ end
 function UItips.OnNextClick()
     coroutine.stop(this.WritingCoroutine)
     this.lb_NpcMessage.text = this.SpeakMessage
+
 end
+
 
 function UItips:AddCollider()
     local box = UILuaTools.AddCollider(this.gameObject)

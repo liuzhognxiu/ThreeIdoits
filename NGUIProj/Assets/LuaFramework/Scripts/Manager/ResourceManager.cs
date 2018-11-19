@@ -94,6 +94,14 @@ namespace LuaFramework
                 return ResMgr.Instance.LoadAssetFromResource(name) as Texture;
         }
 
+        public string LoadText(string name)
+        {
+            if (Helper.SimulateAssetBundleInEditor)
+                return Resources.Load(name).ToString();
+            else
+                return ResMgr.Instance.LoadAssetText(name);
+        }
+
         void OnDestroy()
         {
             if (shared != null) shared.Unload(true);

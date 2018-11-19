@@ -1,4 +1,7 @@
 require("Framework/ViewBase")
+local json = require "cjson"
+local json_safe = require "cjson.safe"
+local util = require "cjson.util"
 
 UICreatePlayer = class(ViewBase)
 
@@ -10,7 +13,7 @@ end
 
 function UICreatePlayer:Reset()
     if this.gameObject ~= nil then
-        GameObject.Destory(this.gameObject)
+        GameObject.Destroy(this.gameObject)
         this.gameObject = nil
     end
 end
@@ -37,8 +40,19 @@ function UICreatePlayer:OnCreate()
     Game.GameManager.Player:SetPlayerName(this.NameText.text)
     Game.GameManager.Player:SetPlayerAge(this.AgeText.text)
 
-    Utility.CreateTextFile(UnityEngine.Application.persistentDataPath.."/PlayerData",TableToStr(Game.GameManager.Player:getTable()),true)
+    local NpcList ={}
+
+    math.newrandomseed()
+
+    for i=1,4 do
+        local a = math.random(0,#GameData.NPCTable)
+        NpcList[i] = GameData.NPCTable[a]
+        table.remove(GameData.NPCTable,a)
+    end
+    
+    Game.GameManager.Player:SetInterpersonalI(NpcList)
+
+    Utility.CreateTextFile(UnityEngine.Application.persistentDataPath.."/PlayerData",json.encode(Game.GameManager.Player:GetTable()),true)
     local ccc = Utility.LoadTextFile(UnityEngine.Application.persistentDataPath.."/PlayerData",true)
-    print(TableToStr(Game.GameManager.Player:getTable()))
-    print(StrToTable(ccc)['name'])
+    print( ccc)
 end

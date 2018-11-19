@@ -14,6 +14,6 @@ function SelectNpcModel:SetNpcList(npclist)
    self:OnPropertyChanged(self.KEY_NPCGRID, this.NpcList);
 end
 
-function SelectNpcModel:GetNpcList ()
-    return  this.NpcList
+function SelectNpcModel:GetNpcList()
+    return this.NpcList
 end

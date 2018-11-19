@@ -54,7 +54,7 @@ public class CSUIBaseEditor : Editor
         "end \r\n" +
         "function UINpcEvent:Reset()\r\n" +
         "    if this.gameObject ~= nil then\r\n" +
-        "        GameObject.Destory(this.gameObject)\r\n" +
+        "        GameObject.Destroy(this.gameObject)\r\n" +
         "        this.gameObject = nil\r\n" +
         "    end\r\n" +
         "end\r\n\r\n" +

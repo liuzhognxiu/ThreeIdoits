@@ -1,6 +1,9 @@
 require "Framework/EventCenter"
 require "MVC/Player/PlayerModeldata"
 
+
+local csv = require('Framework/CSVTools')
+
 LuaGameManager = {}
 
 local this = LuaGameManager
@@ -17,4 +20,10 @@ end
 
 function LuaGameManager:Init()
 	this.Player = PlayerModeldata.new()
+	self:InitNPCData()
+end
+
+function LuaGameManager:InitNPCData()
+	local NPCTable = loadCsvFile("CSVData/NPC")
+	GameData.NPCTable = NPCTable
 end

@@ -133,6 +133,11 @@ public class ResMgr : MonoBehaviour
         }
     }
 
+    public string LoadAssetText(string assetName)
+    {
+        return ResourceController.Instance.LoadAssetText(assetName);
+    }
+
     public void LoadAssetTexture(string assetName, GameObject targetObj, bool isKeepInMemory = false)
     {
         UnityEngine.Object ret = LoadAssetFromResource(assetName);
