@@ -157,6 +157,12 @@ function GetEunmNum(enumType)
 	end
 	return Num
 end
+
+function GetEmumType(num,Eunm)
+    local type = GetEunmName(num,Eunm)
+	return Eunm[type]
+end
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 function is_include(value, tab)
     for k,v in pairs(tab) do

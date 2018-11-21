@@ -5,6 +5,7 @@ require "MVC/UIView/UItips/UItips"
 require "MVC/UIView/UICreatePlayer"
 require "MVC/UIView/UISelectNpcList"
 require "MVC/UIView/UINpcEvent"
+require "MVC/UIView/UItips/UIPromptips"
 
 ViewBinding = {}
 local this= {}
@@ -17,6 +18,7 @@ function ViewBinding.init( )
 	this.bindings["UICreatePlayer"] = UICreatePlayer.new()
 	this.bindings["UISelectNpcList"] = UISelectNpcList.new()
 	this.bindings["UINPCEvent"] = UINPCEvent.new()
+	this.bindings["UIPromptips"] = UIPromptips.new()
 	--this.bindings["MapView"] = MapView.new();
 end
 

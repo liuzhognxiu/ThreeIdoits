@@ -34,6 +34,12 @@ function GetEunmNum(UILayerType)
 	return Num
 end
 
+function GetEmumType(enum,num)
+	return enum(GetEunmName(enum,num))
+end
+
+
+
 function is_include(value, tab)
     for k,v in pairs(tab) do
       if v == value then

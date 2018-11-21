@@ -80,4 +80,8 @@ end
 
 local NPCTable = nil
 
+local AIPlayertable = nil
 
+local NpcEventTable = nil
+
+local Promptipsword = nil

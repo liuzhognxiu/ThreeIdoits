@@ -28,6 +28,7 @@ require "World/Player/PlayerTest"
 require "MVC/Player/PlayerModeldata"
 require("MVC/NPC/NpcModel")
 require("Framework/CSVTools")
+require "Common/enumDefine"
 
 --管理器--
 Game = {};
@@ -66,11 +67,10 @@ function Game.OnInitOK()
 
     ViewBinding.init()
     
-    local  a ={['age']='`1',['name']='lzx',['interpersonal']={{['EQ']='70',['Loyalty']='100',['Position']='1',['id']='6',['sex']='1',['IQ']='70',['name']='小秀子',['head']='6'},{['EQ']='70',['Loyalty']='100',['Position']='1',['id']='5',['sex']='1',['IQ']='70',['name']='小淘子',['head']='5'},{['EQ']='70',['Loyalty']='100',['Position']='1',['id']='9',['sex']='1',['IQ']='70',['name']='小曼子',['head']='9'},{['EQ']='70',['Loyalty']='100',['Position']='1',['id']='2',['sex']='1',['IQ']='70',['name']='小桂子',['head']='2'}}}
-    print(a['interpersonal'])
+	-- print(GetEmumType(1,PositionName))
+
     local Playerdata =  Utility.LoadTextFile(UnityEngine.Application.persistentDataPath.."/PlayerData",true)
-    if Playerdata ~= nil then
-       
+    if Playerdata ~= nil then   
         this.GameManager.Player:SetTable(json.decode(Playerdata))
         dump(json.decode(Playerdata))
         --UIManager.Create("UItips")
@@ -83,6 +83,7 @@ function Game.OnInitOK()
     
     GameData.SelectNpcModel():SetNpcList(this.GameManager.Player:GetInterpersonal())
 
+ 
     logWarn('LuaFramework InitOK--->>>');
 end
 

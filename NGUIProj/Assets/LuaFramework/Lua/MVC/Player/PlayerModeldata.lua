@@ -10,6 +10,16 @@ function PlayerModeldata:ctor()
     this.charm = 0
     this.interpersonal = {}
     this.age = 0
+    this.head = ""
+end
+
+function PlayerModeldata:SetHead(head)
+   this.head = head
+   this.table["head"] = head
+end
+
+function PlayerModeldata:GetHead()
+    return this.head
 end
 
 function PlayerModeldata:getName( )
@@ -67,4 +77,5 @@ function PlayerModeldata:SetTable(PlayerTabel)
     this.charm = PlayerTabel['charm']
     this.age = PlayerTabel['age']
     this.interpersonal = PlayerTabel['interpersonal']
+    this.head = PlayerTabel["head"]
 end
