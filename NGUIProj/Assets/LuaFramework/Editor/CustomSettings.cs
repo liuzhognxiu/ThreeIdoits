@@ -156,7 +156,7 @@ public static class CustomSettings
         _GT(typeof(UILabel)),
         _GT(typeof(UISprite)),
         _GT(typeof(UIGrid)),
-        _GT(typeof(UISprite)),
+        //_GT(typeof(UISprite)),
         _GT(typeof(Util)),
         _GT(typeof(WrapGrid)),
         _GT(typeof(AppConst)),
@@ -189,6 +189,8 @@ public static class CustomSettings
         _GT(typeof(CSMap)),
         _GT(typeof(CSCell)),
         _GT(typeof(LuaAStar)),
+        _GT(typeof(PlayerPrefs)),
+       // _GT(typeof(Application))
 
     };
 

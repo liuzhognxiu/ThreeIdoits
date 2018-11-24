@@ -43,6 +43,10 @@ public class UtilityWrap
 		L.RegFunction("PlayTweenPosition", PlayTweenPosition);
 		L.RegFunction("PlayTweenScale", PlayTweenScale);
 		L.RegFunction("PlayTweenAlpha", PlayTweenAlpha);
+		L.RegFunction("CreateTextFile", CreateTextFile);
+		L.RegFunction("LoadTextFile", LoadTextFile);
+		L.RegFunction("Encrypt", Encrypt);
+		L.RegFunction("Decrypt", Decrypt);
 		L.RegFunction("New", _CreateUtility);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("TipsList", get_TipsList, set_TipsList);
@@ -948,6 +952,76 @@ public class UtilityWrap
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: Utility.PlayTweenAlpha");
 			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CreateTextFile(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			string arg0 = ToLua.CheckString(L, 1);
+			string arg1 = ToLua.CheckString(L, 2);
+			bool arg2 = LuaDLL.luaL_checkboolean(L, 3);
+			Utility.CreateTextFile(arg0, arg1, arg2);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LoadTextFile(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			string arg0 = ToLua.CheckString(L, 1);
+			bool arg1 = LuaDLL.luaL_checkboolean(L, 2);
+			string o = Utility.LoadTextFile(arg0, arg1);
+			LuaDLL.lua_pushstring(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Encrypt(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			string arg0 = ToLua.CheckString(L, 1);
+			string o = Utility.Encrypt(arg0);
+			LuaDLL.lua_pushstring(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Decrypt(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			string arg0 = ToLua.CheckString(L, 1);
+			string o = Utility.Decrypt(arg0);
+			LuaDLL.lua_pushstring(L, o);
+			return 1;
 		}
 		catch (Exception e)
 		{

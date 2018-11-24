@@ -18,3 +18,18 @@ UILayerType = enum
     "Hint = 210",
 }
 
+
+Position = enum
+{
+    "gongnv = 1", 
+    "xiunv = 2",
+    "pinfei = 3",
+    "daying = 4",
+    "changzai = 5",
+    "guiren = 6",
+    "pingfei = 7",
+    "fei = 8",
+    "guifei = 9",
+    "huangguifei = 10",
+    "huanghou = 11",   
+}

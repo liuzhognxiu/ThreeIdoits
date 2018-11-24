@@ -46,5 +46,6 @@ Utility = Utility;
 TableManager = TableManager.Instance;
 MapManager = MapManager.Instance;
 UILuaTools = UILuaTools
+PlayerPrefs = PlayerPrefs
 
 Animation = UnityEngine.Animation

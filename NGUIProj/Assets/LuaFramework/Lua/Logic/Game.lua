@@ -71,22 +71,25 @@ function Game.OnInitOK()
     ]]--
     ViewBinding.init()
     print("Create UItips")
+
+    --创建tips面板代码
     UIManager.Create("UItips")
 	UIManager.GetPanel("UItips"):SelfWritingText("请回答1988","所谓爱一个人，不是喜欢对方的体温，而是要跟对方的体温越来越接近。  所谓爱一个人是：即使对方一直折磨你，你想要一直讨厌对方，但怎么也讨厌不起来。所谓爱是，不是不讨厌，而是绝对不能讨厌的意思。  ")
-    UIManager.Create("LoginView");
-    -- UIManager.Create("MapView");
-
-    -- coroutine.start(this.test_closeLoginView);
-
-    -- local loginView = LoginView.new();
-    -- loginView:init();
-       
-	Utility.ShowCenterInfo("test_decode_cycle",UnityEngine.Color.blue)
-		-- Utility.ShowCenterInfo("123456",UnityEngine.Color.blue)
-		-- Utility.ShowCenterTipsBig("qwerrty",UnityEngine.Color.black)
-		-- Utility.ShowTips("asdfgh",UnityEngine.Color.green)
-    -- Utility.ShowRedTips("我是右手边1")
-
+    
+    local testdata = {}
+    testdata[1] = 1
+    testdata[2] = 3
+    testdata[3] = 5
+    testdata[4] = 7
+    testdata[5] = 8
+    
+    print(UnityEngine.Application.persistentDataPath)
+    --测试存文档
+    Utility.CreateTextFile(UnityEngine.Application.persistentDataPath.."/TestData",TableToStr(testdata),true)
+    local ccc = Utility.LoadTextFile(UnityEngine.Application.persistentDataPath.."/TestData",true)
+    -- 使用TIps消息提示      
+    -- Utility.ShowCenterInfo("123456",UnityEngine.Color.blue)
+    
     --read table
     -- local testTable = goods_info_pb.Goods_Info_Array()
     -- local data = TableManager:LuaReadDataConfig("goods_info.data")
@@ -94,7 +97,8 @@ function Game.OnInitOK()
     --     testTable:ParseFromString(data)
     --     log("@@@@@@@@@@@@@@@@@@@@@@@ " ..  testTable.items[1].goods_id)
     -- end
-	
+    
+    --读取地图数据测试
     -- local mapTable = mapEditor_pb.MapEditorData();
     -- local mapData = MapManager:LuaReadDataConfig("map_02.bytes")
     -- if mapTable ~= nil and mapData ~= nil then
@@ -146,24 +150,22 @@ function Game.OnInitOK()
     --     end
 	
 
-	---CreateScene
-	----CreatePlayer
+	--CreateScene
+	--CreatePlayer
 	-- local TestPlayer = PlayerTest.new()		
 	-- this.SceneMgr = SceneManager.new()
 	-- this.SceneMgr:SetMainPlayer(TestPlayer)
 	-- this.SceneMgr:CreatrScene()
-	----
     --end
 
-    logWarn("UnityEngine")
     logWarn('LuaFramework InitOK--->>>');
 end
 
 function Game.test_closeLoginView(  )
-    coroutine.wait(2)
-    UIManager.Close("LoginView");
-    coroutine.wait(1)
-    UIManager.Create("LoginView");
+    -- coroutine.wait(2)
+    -- UIManager.Close("LoginView");
+    -- coroutine.wait(1)
+    -- UIManager.Create("LoginView");
 	
 	--local testView = UIManager.GetPanel("TestView")
 	--testView:AddCollider(testView.gameObject,"TestView")

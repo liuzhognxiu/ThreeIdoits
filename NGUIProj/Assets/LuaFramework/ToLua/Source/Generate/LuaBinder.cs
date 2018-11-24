@@ -27,6 +27,9 @@ public static class LuaBinder
 		NetWrap.Register(L);
 		TableManagerWrap.Register(L);
 		MapManagerWrap.Register(L);
+		CSMapWrap.Register(L);
+		CSCellWrap.Register(L);
+		LuaAStarWrap.Register(L);
 		UIRectWrap.Register(L);
 		UIWidgetWrap.Register(L);
 		UIBasicSpriteWrap.Register(L);
@@ -73,6 +76,7 @@ public static class LuaBinder
 		UnityEngine_QualitySettingsWrap.Register(L);
 		UnityEngine_RenderSettingsWrap.Register(L);
 		UnityEngine_ResourcesWrap.Register(L);
+		UnityEngine_PlayerPrefsWrap.Register(L);
 		L.BeginModule("Events");
 		L.RegFunction("UnityAction", UnityEngine_Events_UnityAction);
 		L.EndModule();

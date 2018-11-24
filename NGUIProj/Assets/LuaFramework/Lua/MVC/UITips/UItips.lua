@@ -64,7 +64,7 @@ function UItips.Writing(NpcSpeak)
 	this.lb_NpcMessage.text =" "
 	for i=1,k,3 do
 		this.lb_NpcMessage.text = this.lb_NpcMessage.text..tostring(list1[i]) 
-		coroutine.wait(0.1)
+		coroutine.wait(0.12)
 	end
 end
 
