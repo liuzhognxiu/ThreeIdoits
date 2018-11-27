@@ -235,7 +235,7 @@ namespace LuaFramework {
             UIPool.Instance.Init();                  //初始化UI对象池
             LuaManager.DoFile("Logic/Game");         //加载游戏
             LuaManager.DoFile("Logic/Network");      //加载网络
-            //NetManager.OnInit();                     //初始化网络
+            NetManager.OnInit();                     //初始化网络
             Util.CallMethod("Game", "OnInitOK");     //初始化完成
 
             initialize = true;

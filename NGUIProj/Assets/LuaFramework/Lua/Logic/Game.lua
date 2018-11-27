@@ -72,7 +72,6 @@ function Game.OnInitOK()
     local Playerdata =  Utility.LoadTextFile(UnityEngine.Application.persistentDataPath.."/PlayerData",true)
     if Playerdata ~= nil then   
         this.GameManager.Player:SetTable(json.decode(Playerdata))
-        dump(json.decode(Playerdata))
         --UIManager.Create("UItips")
 	    --UIManager.GetPanel("UItips"):SelfWritingText(this.GameManager.Player:GetTable()['name'],"今天也要加油鸭")
     else
@@ -83,7 +82,13 @@ function Game.OnInitOK()
     
     GameData.SelectNpcModel():SetNpcList(this.GameManager.Player:GetInterpersonal())
 
- 
+ 	--CreateScene
+	--CreatePlayer
+	local TestPlayer = PlayerTest.new()		
+	this.SceneMgr = SceneManager.new()
+	this.SceneMgr:SetMainPlayer(TestPlayer)
+	this.SceneMgr:CreatrScene()
+    --end
     logWarn('LuaFramework InitOK--->>>');
 end
 

@@ -2,6 +2,7 @@ using Google.Protobuf;
 using System;
 using System.Collections;
 using System.Text;
+using LuaFramework;
 using UnityEngine;
 
 public class Net : MonoBehaviour, IHttpCallback

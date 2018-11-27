@@ -397,9 +397,9 @@ function Vector3:MulQuat(quat)
 	local num7 	= quat.x * num2
 	local num8 	= quat.x * num3
 	local num9 	= quat.y * num3
-	local num10 = quat.w * num
-	local num11 = quat.w * num2
-	local num12 = quat.w * num3
+	-- local num10 = quat.w * num
+	-- local num11 = quat.w * num2
+	-- local num12 = quat.w * num3
 	
 	local x = (((1 - (num5 + num6)) * self.x) + ((num7 - num12) * self.y)) + ((num8 + num11) * self.z)
 	local y = (((num7 + num12) * self.x) + ((1 - (num4 + num6)) * self.y)) + ((num9 - num10) * self.z)

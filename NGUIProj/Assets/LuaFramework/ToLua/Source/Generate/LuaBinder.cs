@@ -31,6 +31,7 @@ public static class LuaBinder
 		CSMapWrap.Register(L);
 		CSCellWrap.Register(L);
 		LuaAStarWrap.Register(L);
+		SeekerWrap.Register(L);
 		UIRectWrap.Register(L);
 		UIWidgetWrap.Register(L);
 		UIBasicSpriteWrap.Register(L);
@@ -38,6 +39,7 @@ public static class LuaBinder
 		UIWidgetContainerWrap.Register(L);
 		BaseWrap.Register(L);
 		ManagerWrap.Register(L);
+		L.RegFunction("OnPathDelegate", OnPathDelegate);
 		L.BeginModule("UnityEngine");
 		UnityEngine_ComponentWrap.Register(L);
 		UnityEngine_TransformWrap.Register(L);
@@ -111,6 +113,9 @@ public static class LuaBinder
 		LuaFramework_NetworkManagerWrap.Register(L);
 		LuaFramework_ResourceManagerWrap.Register(L);
 		L.EndModule();
+		L.BeginModule("Pathfinding");
+		Pathfinding_PathWrap.Register(L);
+		L.EndModule();
 		L.BeginModule("System");
 		L.RegFunction("Action", System_Action);
 		L.RegFunction("Predicate_int", System_Predicate_int);
@@ -166,6 +171,33 @@ public static class LuaBinder
 		L.AddPreLoad("UnityEngine.Rigidbody", LuaOpen_UnityEngine_Rigidbody, typeof(UnityEngine.Rigidbody));
 		L.EndPreLoad();
 		Debugger.Log("Register lua type cost time: {0}", Time.realtimeSinceStartup - t);
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int OnPathDelegate(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<OnPathDelegate>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<OnPathDelegate>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

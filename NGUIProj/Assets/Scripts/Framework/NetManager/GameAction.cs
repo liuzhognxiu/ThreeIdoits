@@ -1,5 +1,6 @@
 ﻿using Google.Protobuf;
 using System;
+using LuaFramework;
 using UnityEngine;
 
 /// <summary>

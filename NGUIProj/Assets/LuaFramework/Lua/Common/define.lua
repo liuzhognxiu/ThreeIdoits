@@ -49,3 +49,5 @@ UILuaTools = UILuaTools
 PlayerPrefs = PlayerPrefs
 
 Animation = UnityEngine.Animation
+
+DelegateFactory = DelegateFactory
