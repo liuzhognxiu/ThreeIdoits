@@ -1,10 +1,7 @@
 
 *.mdb
-
 *.log
-
 *.backup
-
 *.bakert
 *.csproj
 *.apk
