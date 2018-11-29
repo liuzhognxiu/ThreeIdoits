@@ -1,0 +1,8 @@
+{
+    "files.exclude": {
+        "**/*.bak": true,
+        "**/*.meta": true
+    },
+    "editor.accessibilitySupport": "on",
+    "workbench.settings.settingsSearchTocBehavior": "hide"
+}

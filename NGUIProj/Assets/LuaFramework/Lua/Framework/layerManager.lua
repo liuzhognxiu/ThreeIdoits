@@ -21,7 +21,7 @@ function layerManager:CreateGameObjerct(name,UILayerType)
 	layer.layer = LayerMask.NameToLayer('UI') 
 	layer.transform.name = name
 	layer.transform.parent = self.mParent.transform;
-    layer.transform.localPosition = Vector3(0, 0, UILayerType * -1);
+    layer.transform.localPosition = Vector3(0, 0, 0);
 	layer.transform.localScale = Vector3.one;	
 	return layer
 end

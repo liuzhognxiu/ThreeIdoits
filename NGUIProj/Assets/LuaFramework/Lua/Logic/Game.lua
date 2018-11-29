@@ -75,7 +75,7 @@ function Game.OnInitOK()
     --     --UIManager.Create("UItips")
 	--     --UIManager.GetPanel("UItips"):SelfWritingText(this.GameManager.Player:GetTable()['name'],"今天也要加油鸭")
     -- else
-    --     UIManager.Create("UICreatePlayer")
+         UIManager.Create("UICreatePlayer")
     -- end
 
     -- UIManager.Create("UISelectNpcList")
