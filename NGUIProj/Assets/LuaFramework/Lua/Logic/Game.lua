@@ -69,18 +69,18 @@ function Game.OnInitOK()
     
 	-- print(GetEmumType(1,PositionName))
 
-    local Playerdata =  Utility.LoadTextFile(UnityEngine.Application.persistentDataPath.."/PlayerData",true)
-    if Playerdata ~= nil then   
-        this.GameManager.Player:SetTable(json.decode(Playerdata))
-        --UIManager.Create("UItips")
-	    --UIManager.GetPanel("UItips"):SelfWritingText(this.GameManager.Player:GetTable()['name'],"今天也要加油鸭")
-    else
-        UIManager.Create("UICreatePlayer")
-    end
+    -- local Playerdata =  Utility.LoadTextFile(UnityEngine.Application.persistentDataPath.."/PlayerData",true)
+    -- if Playerdata ~= nil then   
+    --     this.GameManager.Player:SetTable(json.decode(Playerdata))
+    --     --UIManager.Create("UItips")
+	--     --UIManager.GetPanel("UItips"):SelfWritingText(this.GameManager.Player:GetTable()['name'],"今天也要加油鸭")
+    -- else
+    --     UIManager.Create("UICreatePlayer")
+    -- end
 
-    UIManager.Create("UISelectNpcList")
+    -- UIManager.Create("UISelectNpcList")
     
-    GameData.SelectNpcModel():SetNpcList(this.GameManager.Player:GetInterpersonal())
+    -- GameData.SelectNpcModel():SetNpcList(this.GameManager.Player:GetInterpersonal())
 
  	--CreateScene
 	--CreatePlayer
