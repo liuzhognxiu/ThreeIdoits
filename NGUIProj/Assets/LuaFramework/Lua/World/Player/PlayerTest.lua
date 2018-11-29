@@ -29,18 +29,20 @@ function PlayerTest:init(Parent)
 	this.PlayerModel = PlayerModel.new(1);
 	this.PlayerModel:setPlayerName("TestMianPlayer")
 	
-	this.gameObject =  GameObject.Find("Player") -- GameObject.Instantiate(resMgr:LoadPrefab("Prefabs/TestMianPlayer"))	
+	this.gameObject = GameObject.Instantiate(resMgr:LoadPrefab("Player"))	 --GameObject.Find("Player") -- 
 	
 	this.transform = this.gameObject.transform	
 
 	this.seeker = this.gameObject:GetComponent("Seeker")
 
+	--this.gameObject:AddComponent('Binary')
 	this.playerCenterY =this.transform.localPosition.y
 	print(this.seeker.name)
 	this.transform.parent = Parent
 	UpdateBeat:Add(update,self)
 	FixedUpdateBeat:Add(FixedUpdate,self)
 
+	this.gameObject:SetActive(true)
 	this.callback = self.OnPathComplete
 end
 
@@ -51,8 +53,6 @@ function PlayerTest.OnPathComplete(p)
 		this.currentWatPoint = 0
 		this.Path = p
 		this.stopMove = false
-
-
 	end
 end
 

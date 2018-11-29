@@ -7,6 +7,7 @@ public class ProceduralWorld : MonoBehaviour {
 
 	public Transform target;
 
+    //private AstarPath astarPath;
 	public ProceduralPrefab[] prefabs;
 
 	/** How far away to generate tiles */
