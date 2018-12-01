@@ -5,19 +5,26 @@ using System.IO;
 using System;
 using System.Text;
 
+/// <summary>
+/// UI Lua代码生成器，对应生成UI基础部分代码，为了保证项目开发统一规范
+/// </summary>
 public class CSUIBaseEditor : Editor
 {
     #region 格式
-    /// <summary>
-    /// {0}：变量名
-    /// {1}：变量类型
-    /// </summary>
-    public const string MEMBER_FORMAT = "private {1} {0} = null;";
 
     /// <summary>
     /// {0}：变量名
+    /// {1}：物体所在节点
+    /// {2}：脚本的类型
     /// </summary>
-    public const string MEMBER_NULL = "{0} = null;";
+    public const string MEMBER_FORMAT = "this.{0} = findChildRecursively(this.transform,'{1}').gameObject:GetComponent('{2}')";
+
+
+    /// <summary>
+    /// 声明UI的销毁 
+    /// </summary>
+    public const string MEMBER_DESTORY = "function {0}.OnDestroy()";
+
 
     /// <summary>
     /// {0}：变量名
@@ -29,39 +36,38 @@ public class CSUIBaseEditor : Editor
     /// <summary>
     /// 存取UI模板路径
     /// </summary>
-    public const string UIVIEW_PATH = "/Script/UI/view";
+    public const string UIVIEW_PATH = "/LuaFramework/lua/MVC/UIView";
 
     /// <summary>
-    /// __LK__：左大括号{
-    /// __RK__：右大括号}
     /// {0}：UI名称
     /// {1}：成员变量代码
-    /// {2}：变量赋值代码
+    /// {2}：{}
     /// </summary>
     ///         "    {2}\r\n\r\n" +
     public const string BEHAVIOUR_FORMAT =
-        "using UnityEngine;\r\n" +
-        "using System;\r\n" +
-        "using System.Collections;\r\n" +
-        "using System.Collections.Generic;\r\n\r\n" +
-        "public class {0} : UIBase\r\n" +
-        "__LK__\r\n" +
-        "    {1}\r\n\r\n" +
-        "    public override void Init()\r\n" +
-        "    __LK__\r\n" +
-        "        base.Init();\r\n" +
-        "    __RK__\r\n" +
-        "    public override void Show()\r\n" +
-        "    __LK__\r\n" +
-        "        base.Show();\r\n" +
-        "    __RK__\r\n" +
-        "    public override void Destroy()\r\n" +
-        "    __LK__\r\n" +
-        "        base.Destroy();\r\n" +
-        "        {2}\r\n\r\n" +
-        "    __RK__\r\n" +
-        "__RK__\r\n";
-#endregion
+        "{0} = Class(ViewBase)\r\n \r\n" +
+        "local this = {2} \r\n" +
+        "function {0}:ctor() \r\n" +
+        "end \r\n" +
+        "function UINpcEvent:Reset()\r\n" +
+        "    if this.gameObject ~= nil then\r\n" +
+        "        GameObject.Destory(this.gameObject)\r\n" +
+        "        this.gameObject = nil\r\n" +
+        "    end\r\n" +
+        "end\r\n\r\n" +
+        "function {0}:init()" +
+        "    this.btnBehaviour = nil\r\n" +
+        "    this.root = GameObject.Find('UI Root')\r\n" +
+        "    this.gameObject = resMgr:LoadPrefab(\"Prefabs/{0}\",this.root)\r\n" +
+        "    this.luaBehavior = this.gameObject:GetComponent('LuaBehaviour')\r\n" +
+        "    this.transform = this.gameObject.transform\r\n" +
+        "    {1}\r\n" +
+        "    layerManager:SetLayer(this.gameObject,UILayerType.Window)\r\n" + //目前UI默认在window层，之后根据对应的层级分文件夹，其中Window为对应的文件夹的名字
+        "end\r\n\r\n" +
+        "function {0}.OnDestroy()\r\n" +
+        "    this.{0}logic:Release()\r\n" +
+        "end\r\n";
+    #endregion
 
     [MenuItem("Tools/生成UI代码", false, 1101)]
     public static void CreateUIBase()
@@ -95,21 +101,22 @@ public class CSUIBaseEditor : Editor
             string strPath = getPath(mainObject, item);
 
             memberList.Add("");
-            memberList.Add(string.Format(MEMBER_FORMAT, _strName, strType));
-            memberclearList.Add(string.Format(MEMBER_NULL, _strName));
-            memberList.Add(string.Format(MEMBER_ASSIGN, strName, strType, strPath, _strName));
+            memberList.Add(string.Format(MEMBER_FORMAT, _strName, strPath, strType));
+            //memberclearList.Add(string.Format(MEMBER_NULL, _strName));
+            //memberList.Add(string.Format(MEMBER_ASSIGN, strName, strType, strPath, _strName));
         }
         string memberCode = string.Join("\r\n    ", memberList.ToArray());
         //string assignCode = string.Join("\r\n    ", assignList.ToArray());
-        string memberClearCode = string.Join("\r\n        ", memberclearList.ToArray());
+        //string memberClearCode = string.Join("\r\n        ", memberclearList.ToArray());
 
-        string code = string.Format(BEHAVIOUR_FORMAT, mainTrans.name, memberCode, memberClearCode);
-        code = code.Replace("__LK__", "{");
-        code = code.Replace("__RK__", "}");
+
+        string code = string.Format(BEHAVIOUR_FORMAT, mainTrans.name, memberCode, "{}");
+        //code = code.Replace("__LK__", "{");
+        //code = code.Replace("__RK__", "}");
 
         string path = Application.dataPath + UIVIEW_PATH;
 
-        string behaviourCodeFile = Path.Combine(path, mainTrans.name) + ".cs";
+        string behaviourCodeFile = Path.Combine(path, mainTrans.name) + ".lua";
 
         using (FileStream fs = File.Create(behaviourCodeFile))
         {
@@ -170,7 +177,7 @@ public class CSUIBaseEditor : Editor
             strName += str + "/";
         }
         strName += tf.name;
-        return "\"" + strName + "\"";
+        return strName;
     }
 
     private static void getPath(GameObject _target, GameObject Mono, ref List<string> ListName)
@@ -190,24 +197,29 @@ public class CSUIBaseEditor : Editor
         {
             str = sName[0];
             sGoName = sName[1];
-        }   
+        }
 
         string s = str[0].ToString();
         string pathName = "m" + s.ToUpper() + str.Substring(1);
         return (isPathName ? pathName : str + sGoName);
     }
 
+    /// <summary>
+    /// 设置需要获取控件的名字
+    /// </summary>
+    /// <param name="Mono"></param>
+    /// <returns></returns>
     private static string GetType(Transform Mono)
     {
         if (Mono.name.Contains("go_"))
         {
             return "GameObject";
         }
-        else if (Mono.name.Contains("spr_"))
+        else if (Mono.name.Contains("sp_"))
         {
             return "UISprite";
         }
-        else if (Mono.name.Contains("lab_"))
+        else if (Mono.name.Contains("lb_"))
         {
             return "UILabel";
         }
@@ -263,11 +275,11 @@ public class CSUIBaseEditor : Editor
         {
             return true;
         }
-        else if (_name.Contains("spr_"))
+        else if (_name.Contains("sp_"))
         {
             return true;
         }
-        else if (_name.Contains("lab_"))
+        else if (_name.Contains("lb_"))
         {
             return true;
         }
