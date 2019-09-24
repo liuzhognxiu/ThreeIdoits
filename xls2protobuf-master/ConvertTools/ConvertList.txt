@@ -1,3 +1,2 @@
 ﻿..\xls\商品.xls
 ..\xls\角色.xls
-..\xls\goods_info3.xls

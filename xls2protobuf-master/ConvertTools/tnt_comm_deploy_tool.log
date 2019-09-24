@@ -28,3 +28,416 @@
 
 
 2018-10-22 17:30:58,763|INFO|109|_initlog|logger is inited!
+2019-06-10 23:53:49,095|INFO|108|_initlog|
+
+
+
+2019-06-10 23:53:49,111|INFO|109|_initlog|logger is inited!
+2019-06-10 23:54:06,678|INFO|108|_initlog|
+
+
+
+2019-06-10 23:54:06,678|INFO|109|_initlog|logger is inited!
+2019-06-10 23:54:23,486|INFO|108|_initlog|
+
+
+
+2019-06-10 23:54:23,486|INFO|109|_initlog|logger is inited!
+2019-06-10 23:54:34,315|INFO|108|_initlog|
+
+
+
+2019-06-10 23:54:34,315|INFO|109|_initlog|logger is inited!
+2019-06-10 23:55:19,746|INFO|108|_initlog|
+
+
+
+2019-06-10 23:55:19,746|INFO|109|_initlog|logger is inited!
+2019-06-10 23:55:35,298|INFO|108|_initlog|
+
+
+
+2019-06-10 23:55:35,298|INFO|109|_initlog|logger is inited!
+2019-06-10 23:59:32,457|INFO|108|_initlog|
+
+
+
+2019-06-10 23:59:32,457|INFO|109|_initlog|logger is inited!
+2019-06-10 23:59:39,101|INFO|108|_initlog|
+
+
+
+2019-06-10 23:59:39,101|INFO|109|_initlog|logger is inited!
+2019-06-11 00:04:40,173|INFO|108|_initlog|
+
+
+
+2019-06-11 00:04:40,173|INFO|109|_initlog|logger is inited!
+2019-06-11 00:04:51,417|INFO|108|_initlog|
+
+
+
+2019-06-11 00:04:51,417|INFO|109|_initlog|logger is inited!
+2019-06-11 00:04:51,563|INFO|174|Interpreter|begin Interpreter, row_count = 3452, col_count = 61
+2019-06-11 00:04:51,563|INFO|203|_FieldDefine|row=0, col=0, repeated_num=0
+2019-06-11 00:04:51,563|INFO|203|_FieldDefine|row=0, col=1, repeated_num=0
+2019-06-11 00:04:51,563|INFO|211|_FieldDefine|required|uint32|goods_id|商品ID
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=2, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|bytes|name|商品名
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=3, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|uint32|sex|性别
+不限制：100
+male：101
+female：102
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=4, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|uint32|level_limit|等级限制
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=5, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|int32|club_vip_level=0| 达人俱乐部等级限制
+（普通商品不用配置或配置0）
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=6, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|int32|qb_2| 2Q币专区
+（普通商品不用配置或配置0）
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=7, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|uint32|consume_type|消费类型
+0 数量
+1 时间
+2 永久
+
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=8, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|uint32|time_unit|计时单位
+0 默认(天)
+1 分钟
+2 小时
+3 天
+4 月
+5 年
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=9, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|uint32|is_online=0|是否商城上架显示
+（根据需要配置上下架时间）
+0 否
+1 是
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=10, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|uint32|can_buy=0|能否购买
+（已上架物品必然可买，根据需要配置上下架时间）
+0 否
+1 是
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=11, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|uint32|can_recharge=0|可否续费
+0 否
+1 是
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=12, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|bytes|online_time|上架时间
+(YYYY-MM-DD HH:MM:SS)
+
+1.最近两批上架的物品，其新品销售状态可省
+2.可用于排序
+3.上架的最终确定需结合“是否上架”
+
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=13, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|bytes|offline_time|下架时间
+(YYYY-MM-DD HH:MM:SS)
+
+1.不填表示用不下架
+2.下架的最终确定需结合“有效时间”、“是否上架”
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=14, repeated_num=0
+2019-06-11 00:04:51,565|DEBUG|228|_FieldDefine|repeated|uint32
+2019-06-11 00:04:51,565|INFO|241|_FieldDefine|repeated|uint32|privileged_plat_id_list|平台特权物品
+这里配置平台id
+多个平台以半角分号分割
+如（1;2;3）
+1:Qzone
+10001:游戏频道微端
+2:官网
+4:Qqgame
+10011：QQ音乐
+
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=15, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|uint32|privileged_plat_is_online=0|是否商城上架显示
+（根据需要配置上下架时间）
+0 否
+1 是
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=16, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|uint32|privileged_plat_can_buy=0|能否购买
+（已上架物品必然可买，根据需要配置上下架时间）
+0 否
+1 是
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=17, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|uint32|privileged_plat_can_recharge=0|可否续费
+0 否
+1 是
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=18, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|uint32|payment_terms=0|支付方式
+0 默认不限
+1 只限QB
+2 只限点券
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=19, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|bytes|valid_time| 有效时间
+（过期会从背包删除）
+需要再添加
+格式如下，日期和时间中间是空格，不是换行！
+2011-10-10 00:00:00
+2019-06-11 00:04:51,565|INFO|203|_FieldDefine|row=0, col=20, repeated_num=0
+2019-06-11 00:04:51,565|INFO|211|_FieldDefine|optional|uint32|sort_priority|排序优先级
+
+1~? 优先级递减
+0 最低优先级
+2019-06-11 00:04:51,566|INFO|203|_FieldDefine|row=0, col=21, repeated_num=0
+2019-06-11 00:04:51,566|INFO|211|_FieldDefine|optional|int32|suit_number|配套编号
+
+-1 散装
+0 子id相同默认成套
+1~9999 配套编号（允许不同子id）
+2019-06-11 00:04:51,566|INFO|203|_FieldDefine|row=0, col=22, repeated_num=0
+2019-06-11 00:04:51,566|INFO|211|_FieldDefine|optional|uint32|bag_sort_priority|背包排序优先级
+
+0~正数优先级递增
+
+背包排序有较复杂的具体排序逻辑。本数值只用于背包中的【其他】物品的排序
+2019-06-11 00:04:51,566|INFO|203|_FieldDefine|row=0, col=23, repeated_num=0
+2019-06-11 00:04:51,566|INFO|211|_FieldDefine|optional|bytes|status|销售状态
+多状态数字相加
+0 ：无状态
+1 : new
+2 : expire soon
+3 : limited
+4 : discount
+5 : recommended
+
+2019-06-11 00:04:51,566|INFO|203|_FieldDefine|row=0, col=24, repeated_num=0
+2019-06-11 00:04:51,566|INFO|211|_FieldDefine|optional|uint32|rank|评级
+"0": NO RANK
+"1":  S
+"2":  A
+"3":  B
+"4":  C
+"5":  D
+
+2019-06-11 00:04:51,566|INFO|203|_FieldDefine|row=0, col=25, repeated_num=0
+2019-06-11 00:04:51,566|INFO|211|_FieldDefine|optional|uint32|price_discount|折扣（1-100）
+2019-06-11 00:04:51,566|INFO|203|_FieldDefine|row=0, col=26, repeated_num=0
+2019-06-11 00:04:51,566|INFO|211|_FieldDefine|optional|uint32|vip_discount|VIP折扣（1-100）
+2019-06-11 00:04:51,566|INFO|203|_FieldDefine|row=0, col=27, repeated_num=0
+2019-06-11 00:04:51,566|DEBUG|228|_FieldDefine|repeated|5.0
+2019-06-11 00:04:51,566|INFO|233|_FieldDefine|repeated|5
+2019-06-11 00:04:51,566|INFO|203|_FieldDefine|row=0, col=28, repeated_num=5
+2019-06-11 00:04:51,566|INFO|255|_FieldDefine|optional_struct|3|Price|price_table
+2019-06-11 00:04:51,566|INFO|203|_FieldDefine|row=0, col=29, repeated_num=0
+2019-06-11 00:04:51,566|INFO|211|_FieldDefine|optional|uint32|price_dq|点券价格
+2019-06-11 00:04:51,566|INFO|203|_FieldDefine|row=0, col=30, repeated_num=0
+2019-06-11 00:04:51,568|INFO|211|_FieldDefine|optional|uint32|price_gold|金币价格
+2019-06-11 00:04:51,568|INFO|203|_FieldDefine|row=0, col=31, repeated_num=0
+2019-06-11 00:04:51,568|INFO|211|_FieldDefine|optional|uint32|price_value|天数或数量
+2019-06-11 00:04:51,568|INFO|203|_FieldDefine|row=0, col=48, repeated_num=0
+2019-06-11 00:04:51,568|DEBUG|228|_FieldDefine|repeated|3.0
+2019-06-11 00:04:51,568|INFO|233|_FieldDefine|repeated|3
+2019-06-11 00:04:51,568|INFO|203|_FieldDefine|row=0, col=49, repeated_num=3
+2019-06-11 00:04:51,568|INFO|255|_FieldDefine|optional_struct|2|GoodsAttr|goods_attr
+2019-06-11 00:04:51,568|INFO|203|_FieldDefine|row=0, col=50, repeated_num=0
+2019-06-11 00:04:51,568|INFO|211|_FieldDefine|optional|uint32|attr_type|属性类型
+1 HP
+2 体力
+3 怒气
+4 攻击力
+5 暴击
+  
+ 
+2019-06-11 00:04:51,568|INFO|203|_FieldDefine|row=0, col=51, repeated_num=0
+2019-06-11 00:04:51,568|INFO|211|_FieldDefine|optional|uint32|attr_value|属性值
+(HP
+头发：150
+上身：150
+下身：100
+表情：50
+)
+2019-06-11 00:04:51,568|INFO|203|_FieldDefine|row=0, col=58, repeated_num=0
+2019-06-11 00:04:51,568|INFO|211|_FieldDefine|optional|bytes|description|商品详情
+2019-06-11 00:04:51,568|INFO|203|_FieldDefine|row=0, col=59, repeated_num=0
+2019-06-11 00:04:51,568|INFO|211|_FieldDefine|optional|uint32|limit_id|商城购买的限制id
+详细配置在
+limitation表
+2019-06-11 00:04:51,568|INFO|203|_FieldDefine|row=0, col=60, repeated_num=0
+2019-06-11 00:04:51,568|INFO|211|_FieldDefine|optional|bytes|subSystemId|使用 跳转id
+2019-06-11 00:08:57,273|INFO|108|_initlog|
+
+
+
+2019-06-11 00:08:57,273|INFO|109|_initlog|logger is inited!
+2019-06-11 00:08:57,420|INFO|174|Interpreter|begin Interpreter, row_count = 3452, col_count = 61
+2019-06-11 00:08:57,420|INFO|203|_FieldDefine|row=0, col=0, repeated_num=0
+2019-06-11 00:08:57,420|INFO|203|_FieldDefine|row=0, col=1, repeated_num=0
+2019-06-11 00:08:57,420|INFO|211|_FieldDefine|required|uint32|goods_id|商品ID
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=2, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|bytes|name|商品名
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=3, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|uint32|sex|性别
+不限制：100
+male：101
+female：102
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=4, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|uint32|level_limit|等级限制
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=5, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|int32|club_vip_level=0| 达人俱乐部等级限制
+（普通商品不用配置或配置0）
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=6, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|int32|qb_2| 2Q币专区
+（普通商品不用配置或配置0）
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=7, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|uint32|consume_type|消费类型
+0 数量
+1 时间
+2 永久
+
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=8, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|uint32|time_unit|计时单位
+0 默认(天)
+1 分钟
+2 小时
+3 天
+4 月
+5 年
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=9, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|uint32|is_online=0|是否商城上架显示
+（根据需要配置上下架时间）
+0 否
+1 是
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=10, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|uint32|can_buy=0|能否购买
+（已上架物品必然可买，根据需要配置上下架时间）
+0 否
+1 是
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=11, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|uint32|can_recharge=0|可否续费
+0 否
+1 是
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=12, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|bytes|online_time|上架时间
+(YYYY-MM-DD HH:MM:SS)
+
+1.最近两批上架的物品，其新品销售状态可省
+2.可用于排序
+3.上架的最终确定需结合“是否上架”
+
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=13, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|bytes|offline_time|下架时间
+(YYYY-MM-DD HH:MM:SS)
+
+1.不填表示用不下架
+2.下架的最终确定需结合“有效时间”、“是否上架”
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=14, repeated_num=0
+2019-06-11 00:08:57,421|DEBUG|228|_FieldDefine|repeated|uint32
+2019-06-11 00:08:57,421|INFO|241|_FieldDefine|repeated|uint32|privileged_plat_id_list|平台特权物品
+这里配置平台id
+多个平台以半角分号分割
+如（1;2;3）
+1:Qzone
+10001:游戏频道微端
+2:官网
+4:Qqgame
+10011：QQ音乐
+
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=15, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|uint32|privileged_plat_is_online=0|是否商城上架显示
+（根据需要配置上下架时间）
+0 否
+1 是
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=16, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|uint32|privileged_plat_can_buy=0|能否购买
+（已上架物品必然可买，根据需要配置上下架时间）
+0 否
+1 是
+2019-06-11 00:08:57,421|INFO|203|_FieldDefine|row=0, col=17, repeated_num=0
+2019-06-11 00:08:57,421|INFO|211|_FieldDefine|optional|uint32|privileged_plat_can_recharge=0|可否续费
+0 否
+1 是
+2019-06-11 00:08:57,423|INFO|203|_FieldDefine|row=0, col=18, repeated_num=0
+2019-06-11 00:08:57,423|INFO|211|_FieldDefine|optional|uint32|payment_terms=0|支付方式
+0 默认不限
+1 只限QB
+2 只限点券
+2019-06-11 00:08:57,423|INFO|203|_FieldDefine|row=0, col=19, repeated_num=0
+2019-06-11 00:08:57,423|INFO|211|_FieldDefine|optional|bytes|valid_time| 有效时间
+（过期会从背包删除）
+需要再添加
+格式如下，日期和时间中间是空格，不是换行！
+2011-10-10 00:00:00
+2019-06-11 00:08:57,423|INFO|203|_FieldDefine|row=0, col=20, repeated_num=0
+2019-06-11 00:08:57,423|INFO|211|_FieldDefine|optional|uint32|sort_priority|排序优先级
+
+1~? 优先级递减
+0 最低优先级
+2019-06-11 00:08:57,423|INFO|203|_FieldDefine|row=0, col=21, repeated_num=0
+2019-06-11 00:08:57,423|INFO|211|_FieldDefine|optional|int32|suit_number|配套编号
+
+-1 散装
+0 子id相同默认成套
+1~9999 配套编号（允许不同子id）
+2019-06-11 00:08:57,423|INFO|203|_FieldDefine|row=0, col=22, repeated_num=0
+2019-06-11 00:08:57,423|INFO|211|_FieldDefine|optional|uint32|bag_sort_priority|背包排序优先级
+
+0~正数优先级递增
+
+背包排序有较复杂的具体排序逻辑。本数值只用于背包中的【其他】物品的排序
+2019-06-11 00:08:57,423|INFO|203|_FieldDefine|row=0, col=23, repeated_num=0
+2019-06-11 00:08:57,423|INFO|211|_FieldDefine|optional|bytes|status|销售状态
+多状态数字相加
+0 ：无状态
+1 : new
+2 : expire soon
+3 : limited
+4 : discount
+5 : recommended
+
+2019-06-11 00:08:57,423|INFO|203|_FieldDefine|row=0, col=24, repeated_num=0
+2019-06-11 00:08:57,423|INFO|211|_FieldDefine|optional|uint32|rank|评级
+"0": NO RANK
+"1":  S
+"2":  A
+"3":  B
+"4":  C
+"5":  D
+
+2019-06-11 00:08:57,424|INFO|203|_FieldDefine|row=0, col=25, repeated_num=0
+2019-06-11 00:08:57,424|INFO|211|_FieldDefine|optional|uint32|price_discount|折扣（1-100）
+2019-06-11 00:08:57,424|INFO|203|_FieldDefine|row=0, col=26, repeated_num=0
+2019-06-11 00:08:57,424|INFO|211|_FieldDefine|optional|uint32|vip_discount|VIP折扣（1-100）
+2019-06-11 00:08:57,424|INFO|203|_FieldDefine|row=0, col=27, repeated_num=0
+2019-06-11 00:08:57,424|DEBUG|228|_FieldDefine|repeated|5.0
+2019-06-11 00:08:57,424|INFO|233|_FieldDefine|repeated|5
+2019-06-11 00:08:57,424|INFO|203|_FieldDefine|row=0, col=28, repeated_num=5
+2019-06-11 00:08:57,424|INFO|255|_FieldDefine|optional_struct|3|Price|price_table
+2019-06-11 00:08:57,424|INFO|203|_FieldDefine|row=0, col=29, repeated_num=0
+2019-06-11 00:08:57,424|INFO|211|_FieldDefine|optional|uint32|price_dq|点券价格
+2019-06-11 00:08:57,424|INFO|203|_FieldDefine|row=0, col=30, repeated_num=0
+2019-06-11 00:08:57,424|INFO|211|_FieldDefine|optional|uint32|price_gold|金币价格
+2019-06-11 00:08:57,424|INFO|203|_FieldDefine|row=0, col=31, repeated_num=0
+2019-06-11 00:08:57,424|INFO|211|_FieldDefine|optional|uint32|price_value|天数或数量
+2019-06-11 00:08:57,426|INFO|203|_FieldDefine|row=0, col=48, repeated_num=0
+2019-06-11 00:08:57,426|DEBUG|228|_FieldDefine|repeated|3.0
+2019-06-11 00:08:57,426|INFO|233|_FieldDefine|repeated|3
+2019-06-11 00:08:57,426|INFO|203|_FieldDefine|row=0, col=49, repeated_num=3
+2019-06-11 00:08:57,426|INFO|255|_FieldDefine|optional_struct|2|GoodsAttr|goods_attr
+2019-06-11 00:08:57,426|INFO|203|_FieldDefine|row=0, col=50, repeated_num=0
+2019-06-11 00:08:57,426|INFO|211|_FieldDefine|optional|uint32|attr_type|属性类型
+1 HP
+2 体力
+3 怒气
+4 攻击力
+5 暴击
+  
+ 
+2019-06-11 00:08:57,426|INFO|203|_FieldDefine|row=0, col=51, repeated_num=0
+2019-06-11 00:08:57,427|INFO|211|_FieldDefine|optional|uint32|attr_value|属性值
+(HP
+头发：150
+上身：150
+下身：100
+表情：50
+)
+2019-06-11 00:08:57,427|INFO|203|_FieldDefine|row=0, col=58, repeated_num=0
+2019-06-11 00:08:57,427|INFO|211|_FieldDefine|optional|bytes|description|商品详情
+2019-06-11 00:08:57,427|INFO|203|_FieldDefine|row=0, col=59, repeated_num=0
+2019-06-11 00:08:57,427|INFO|211|_FieldDefine|optional|uint32|limit_id|商城购买的限制id
+详细配置在
+limitation表
+2019-06-11 00:08:57,427|INFO|203|_FieldDefine|row=0, col=60, repeated_num=0
+2019-06-11 00:08:57,427|INFO|211|_FieldDefine|optional|bytes|subSystemId|使用 跳转id

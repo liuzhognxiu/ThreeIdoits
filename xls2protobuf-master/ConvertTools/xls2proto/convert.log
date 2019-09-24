@@ -1,15 +1,15 @@
-2018-11-08 12:06:21,453|INFO|116|_initlog|
+2019-06-11 00:15:06,799|INFO|116|_initlog|
 
 
 
-2018-11-08 12:06:21,456|INFO|117|_initlog|logger is inited!
-2018-11-08 12:06:21,664|INFO|116|_initlog|
+2019-06-11 00:15:06,799|INFO|117|_initlog|logger is inited!
+2019-06-11 00:15:06,924|INFO|116|_initlog|
 
 
 
-2018-11-08 12:06:21,664|INFO|117|_initlog|logger is inited!
-2018-11-08 12:06:21,869|INFO|116|_initlog|
-
-
-
-2018-11-08 12:06:21,869|INFO|117|_initlog|logger is inited!
+2019-06-11 00:15:06,924|INFO|117|_initlog|logger is inited!
+2019-06-11 00:15:06,927|INFO|218|Interpreter|begin Interpreter sheet(帐号) proto:(AccountInfo), row_count = 7, col_count = 3
+2019-06-11 00:15:06,927|INFO|248|_FieldDefine|row=0, col=0, repeated_num=0
+2019-06-11 00:15:06,927|INFO|248|_FieldDefine|row=0, col=1, repeated_num=0
+2019-06-11 00:15:06,928|INFO|248|_FieldDefine|row=0, col=2, repeated_num=0
+2019-06-11 00:15:06,928|INFO|256|_FieldDefine|optional|bytes|name|姓名

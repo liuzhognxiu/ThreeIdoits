@@ -1,7 +1,7 @@
 @echo off
 
 ::-------------------------------------
-:: ×ª»»ËùÓÐÊý¾Ý
+:: è½¬æ¢æ‰€æœ‰æ•°æ®
 ::-------------------------------------
 
 echo.
@@ -9,7 +9,7 @@ echo =========Compilation  All xls=========
 
 
 ::---------------------------------------------------
-::µÚÒ»²½£¬½«xls¾­¹ýxls_deploy_tool×ª³ÉbinºÍproto
+::ç¬¬ä¸€æ­¥ï¼Œå°†xlsç»è¿‡xls_deploy_toolè½¬æˆbinå’Œproto
 ::---------------------------------------------------
 set STEP1_XLS2PROTO_PATH=xls2proto
 
@@ -31,7 +31,7 @@ for /f "delims=" %%i in (..\ConvertList.txt) do   python ..\xls2protobuf_v3.py %
 
 
 ::---------------------------------------------------
-::µÚ¶þ²½£º°Ñproto·­Òë³Écs
+::ç¬¬äºŒæ­¥ï¼šæŠŠprotoç¿»è¯‘æˆcs
 ::---------------------------------------------------
 cd ..
 
@@ -69,7 +69,7 @@ move /y %STEP2_PROTO2CS_PATH%\*pb.cc %STEP2_PROTO2CPP_PATH%
 move /y %STEP2_PROTO2CS_PATH%\*pb.h %STEP2_PROTO2CPP_PATH%
 
 ::---------------------------------------------------
-::µÚÈý²½£º½«binºÍcs¿½µ½AssetsÀï
+::ç¬¬ä¸‰æ­¥ï¼šå°†binå’Œcsæ‹·åˆ°Assetsé‡Œ
 ::---------------------------------------------------
 
 @echo off
@@ -83,7 +83,7 @@ copy %STEP1_XLS2PROTO_PATH%\*.bin %OUT_PATH%\%DATA_DEST%
 copy %STEP2_PROTO2CS_PATH%\*.cs %OUT_PATH%\%CS_DEST%
 
 ::---------------------------------------------------
-::µÚËÄ²½£ºÇå³ýÖÐ¼äÎÄ¼þ
+::ç¬¬å››æ­¥ï¼šæ¸…é™¤ä¸­é—´æ–‡ä»¶
 ::---------------------------------------------------
 @echo off
 echo TRY TO DELETE TEMP FILES:
@@ -102,7 +102,7 @@ del *_pb2.pyc
 :: cd ..
 
 ::---------------------------------------------------
-::µÚÎå²½£º½áÊø
+::ç¬¬äº”æ­¥ï¼šç»“æŸ
 ::---------------------------------------------------
 cd ..
 

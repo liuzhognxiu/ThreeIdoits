@@ -140,13 +140,13 @@ class SheetInterpreter:
 
         try :
             self._workbook = xlrd.open_workbook(self._xls_file_path)
-        except BaseException, e :
-            print "open xls file(%s) failed!"%(self._xls_file_path)
+        except BaseException as e :
+            print "open xls file(%s) failed!" %(self._xls_file_path)
             raise
 
         try :
             self._sheet =self._workbook.sheet_by_name(self._sheet_name)
-        except BaseException, e :
+        except BaseException as e :
             print "open sheet(%s) failed!"%(self._sheet_name)
 
         # 行数和列数

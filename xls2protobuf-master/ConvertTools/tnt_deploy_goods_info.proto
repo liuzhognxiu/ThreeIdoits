@@ -1,0 +1,168 @@
+/**
+* @file:   tnt_deploy_goods_info.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package tnt_deploy;
+
+message GOODS_INFO{
+    /** 商品ID */
+    required uint32 goods_id = 1 [default = 0];
+    /** 商品名 */
+    optional bytes name = 2 [default = ""];
+    /** 性别
+        不限制：100
+        male：101
+        female：102
+    */
+    optional uint32 sex = 3 [default = 0];
+    /** 等级限制 */
+    optional uint32 level_limit = 4 [default = 0];
+    /**  达人俱乐部等级限制
+（普通商品不用配置或配置0） */
+    optional int32 club_vip_level = 5 [default = 0];
+    /**  2Q币专区
+（普通商品不用配置或配置0） */
+    optional int32 qb_2 = 6 [default = 0];
+    optional uint32 consume_type = 7 [default = 0];
+    /** 计时单位
+        0 默认(天)
+        1 分钟
+        2 小时
+        3 天
+        4 月
+        5 年
+    */
+    optional uint32 time_unit = 8 [default = 0];
+    /** 是否商城上架显示
+        （根据需要配置上下架时间）
+        0 否
+        1 是
+    */
+    optional uint32 is_online = 9 [default = 0];
+    /** 能否购买
+        （已上架物品必然可买，根据需要配置上下架时间）
+        0 否
+        1 是
+    */
+    optional uint32 can_buy = 10 [default = 0];
+    /** 可否续费
+        0 否
+        1 是
+    */
+    optional uint32 can_recharge = 11 [default = 0];
+    optional bytes online_time = 12 [default = ""];
+    /** 下架时间
+        (YYYY-MM-DD HH:MM:SS)
+        
+        1.不填表示用不下架
+        2.下架的最终确定需结合“有效时间”、“是否上架”
+    */
+    optional bytes offline_time = 13 [default = ""];
+    repeated uint32 privileged_plat_id_list = 14;
+    /** 是否商城上架显示
+        （根据需要配置上下架时间）
+        0 否
+        1 是
+    */
+    optional uint32 privileged_plat_is_online = 15 [default = 0];
+    /** 能否购买
+        （已上架物品必然可买，根据需要配置上下架时间）
+        0 否
+        1 是
+    */
+    optional uint32 privileged_plat_can_buy = 16 [default = 0];
+    /** 可否续费
+        0 否
+        1 是
+    */
+    optional uint32 privileged_plat_can_recharge = 17 [default = 0];
+    /** 支付方式
+        0 默认不限
+        1 只限QB
+        2 只限点券
+    */
+    optional uint32 payment_terms = 18 [default = 0];
+    /**  有效时间
+        （过期会从背包删除）
+        需要再添加
+        格式如下，日期和时间中间是空格，不是换行！
+        2011-10-10 00:00:00
+    */
+    optional bytes valid_time = 19 [default = ""];
+    /** 排序优先级
+        
+        1~? 优先级递减
+        0 最低优先级
+    */
+    optional uint32 sort_priority = 20 [default = 0];
+    /** 配套编号
+        
+        -1 散装
+        0 子id相同默认成套
+        1~9999 配套编号（允许不同子id）
+    */
+    optional int32 suit_number = 21 [default = 0];
+    /** 背包排序优先级
+        
+        0~正数优先级递增
+        
+        背包排序有较复杂的具体排序逻辑。本数值只用于背包中的【其他】物品的排序
+    */
+    optional uint32 bag_sort_priority = 22 [default = 0];
+    optional bytes status = 23 [default = ""];
+    optional uint32 rank = 24 [default = 0];
+    /** 折扣（1-100） */
+    optional uint32 price_discount = 25 [default = 0];
+    /** VIP折扣（1-100） */
+    optional uint32 vip_discount = 26 [default = 0];
+
+    message Price{
+        /** 点券价格 */
+        optional uint32 price_dq = 1 [default = 0];
+        /** 金币价格 */
+        optional uint32 price_gold = 2 [default = 0];
+        /** 天数或数量 */
+        optional uint32 price_value = 3 [default = 0];
+    }
+
+    repeated Price price_table = 27;
+
+    message GoodsAttr{
+        /** 属性类型
+            1 HP
+            2 体力
+            3 怒气
+            4 攻击力
+            5 暴击
+              
+             
+        */
+        optional uint32 attr_type = 1 [default = 0];
+        /** 属性值
+            (HP
+            头发：150
+            上身：150
+            下身：100
+            表情：50
+            )
+        */
+        optional uint32 attr_value = 2 [default = 0];
+    }
+
+    repeated GoodsAttr goods_attr = 28;
+    /** 商品详情 */
+    optional bytes description = 29 [default = ""];
+    /** 商城购买的限制id
+        详细配置在
+        limitation表
+    */
+    optional uint32 limit_id = 30 [default = 0];
+    /** 使用 跳转id */
+    optional bytes subSystemId = 31 [default = ""];
+}
+
+message GOODS_INFO_ARRAY {
+    repeated GOODS_INFO items = 1;
+}
